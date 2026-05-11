@@ -1,0 +1,68 @@
+{"id": "clld_01a", "sentence": "Τον Γιάννη, τον είδα χτες στη δουλειά.", "phenomenon": "clld", "condition": "definite_doubled", "expected": "high"}
+{"id": "clld_01b", "sentence": "Τον Γιάννη, είδα χτες στη δουλειά.", "phenomenon": "clld", "condition": "definite_bare", "expected": "low"}
+{"id": "clld_02a", "sentence": "Τη Μαρία, τη συνάντησα στη βιβλιοθήκη.", "phenomenon": "clld", "condition": "definite_doubled", "expected": "high"}
+{"id": "clld_02b", "sentence": "Τη Μαρία, συνάντησα στη βιβλιοθήκη.", "phenomenon": "clld", "condition": "definite_bare", "expected": "low"}
+{"id": "clld_03a", "sentence": "Τον Κώστα, τον κάλεσα στο πάρτι.", "phenomenon": "clld", "condition": "definite_doubled", "expected": "high"}
+{"id": "clld_03b", "sentence": "Τον Κώστα, κάλεσα στο πάρτι.", "phenomenon": "clld", "condition": "definite_bare", "expected": "low"}
+{"id": "clld_04a", "sentence": "Τη Σοφία, τη γνωρίζω από το σχολείο.", "phenomenon": "clld", "condition": "proper_name_doubled", "expected": "high"}
+{"id": "clld_04b", "sentence": "Τη Σοφία, γνωρίζω από το σχολείο.", "phenomenon": "clld", "condition": "proper_name_bare", "expected": "low"}
+{"id": "clld_05a", "sentence": "Τον Νίκο, τον θαυμάζω πολύ.", "phenomenon": "clld", "condition": "proper_name_doubled", "expected": "high"}
+{"id": "clld_05b", "sentence": "Τον Νίκο, θαυμάζω πολύ.", "phenomenon": "clld", "condition": "proper_name_bare", "expected": "low"}
+{"id": "clld_06a", "sentence": "Την Ελένη, την αγαπάει όλος ο κόσμος.", "phenomenon": "clld", "condition": "proper_name_doubled", "expected": "high"}
+{"id": "clld_06b", "sentence": "Την Ελένη, αγαπάει όλος ο κόσμος.", "phenomenon": "clld", "condition": "proper_name_bare", "expected": "low"}
+{"id": "clld_07a", "sentence": "Έναν φίλο, τον είδα χτες στο μετρό.", "phenomenon": "clld", "condition": "indef_specific_doubled", "expected": "mid"}
+{"id": "clld_07b", "sentence": "Έναν φίλο, είδα χτες στο μετρό.", "phenomenon": "clld", "condition": "indef_specific_bare", "expected": "low"}
+{"id": "clld_08a", "sentence": "Ένα σακάκι, του το ψάχνει από το πρωί.", "phenomenon": "clld", "condition": "indef_specific_doubled", "expected": "mid"}
+{"id": "clld_08b", "sentence": "Ένα σακάκι, του ψάχνει από το πρωί.", "phenomenon": "clld", "condition": "indef_specific_bare", "expected": "low"}
+{"id": "clld_09a", "sentence": "Μια καθηγήτρια, τη γνώρισα στο συνέδριο.", "phenomenon": "clld", "condition": "indef_specific_doubled", "expected": "mid"}
+{"id": "clld_09b", "sentence": "Μια καθηγήτρια, γνώρισα στο συνέδριο.", "phenomenon": "clld", "condition": "indef_specific_bare", "expected": "low"}
+{"id": "clld_10a", "sentence": "Έναν ψυχολόγο, τον αναζητώ εδώ και μέρες.", "phenomenon": "clld", "condition": "indef_nonspec_doubled", "expected": "low"}
+{"id": "clld_10b", "sentence": "Έναν ψυχολόγο, αναζητώ εδώ και μέρες.", "phenomenon": "clld", "condition": "indef_nonspec_bare", "expected": "low"}
+{"id": "clld_11a", "sentence": "Έναν καλό μάγειρα, τον χρειάζεται το εστιατόριο.", "phenomenon": "clld", "condition": "indef_nonspec_doubled", "expected": "low"}
+{"id": "clld_11b", "sentence": "Έναν καλό μάγειρα, χρειάζεται το εστιατόριο.", "phenomenon": "clld", "condition": "indef_nonspec_bare", "expected": "low"}
+{"id": "clld_12a", "sentence": "Ένα αυτοκίνητο, το θέλει να κινείται εύκολα.", "phenomenon": "clld", "condition": "indef_nonspec_doubled", "expected": "low"}
+{"id": "clld_12b", "sentence": "Ένα αυτοκίνητο, θέλει να κινείται εύκολα.", "phenomenon": "clld", "condition": "indef_nonspec_bare", "expected": "low"}
+{"id": "clld_13a", "sentence": "Κάποιους κρητικούς, τους ξέρω προσωπικά.", "phenomenon": "clld", "condition": "merikous_doubled", "expected": "mid"}
+{"id": "clld_13b", "sentence": "Κάποιους κρητικούς, ξέρω προσωπικά.", "phenomenon": "clld", "condition": "merikous_bare", "expected": "low"}
+{"id": "clld_14a", "sentence": "Μερικούς φίλους, τους κέρασα ποτά.", "phenomenon": "clld", "condition": "merikous_doubled", "expected": "mid"}
+{"id": "clld_14b", "sentence": "Μερικούς φίλους, κέρασα ποτά.", "phenomenon": "clld", "condition": "merikous_bare", "expected": "low"}
+{"id": "clld_15a", "sentence": "Μερικές κοπέλες, τις ρώτησα αν θέλουν να έρθουν.", "phenomenon": "clld", "condition": "merikous_doubled", "expected": "mid"}
+{"id": "clld_15b", "sentence": "Μερικές κοπέλες, ρώτησα αν θέλουν να έρθουν.", "phenomenon": "clld", "condition": "merikous_bare", "expected": "low"}
+{"id": "clld_16a", "sentence": "Πολλούς συγγενείς, τους βλέπω μόνο τα Χριστούγεννα.", "phenomenon": "clld", "condition": "pollous_doubled", "expected": "low"}
+{"id": "clld_16b", "sentence": "Πολλούς συγγενείς, βλέπω μόνο τα Χριστούγεννα.", "phenomenon": "clld", "condition": "pollous_bare", "expected": "low"}
+{"id": "clld_17a", "sentence": "Πολλούς φίλους, τους κάλεσα στο γάμο.", "phenomenon": "clld", "condition": "pollous_doubled", "expected": "low"}
+{"id": "clld_17b", "sentence": "Πολλούς φίλους, κάλεσα στο γάμο.", "phenomenon": "clld", "condition": "pollous_bare", "expected": "low"}
+{"id": "clld_18a", "sentence": "Περισσότερους καθηγητές, τους είδα στο συνέδριο.", "phenomenon": "clld", "condition": "pollous_doubled", "expected": "low"}
+{"id": "clld_18b", "sentence": "Περισσότερους καθηγητές, είδα στο συνέδριο.", "phenomenon": "clld", "condition": "pollous_bare", "expected": "low"}
+{"id": "clld_19a", "sentence": "Καθέναν, τον γνωρίζω από κοντά.", "phenomenon": "clld", "condition": "kathe_doubled", "expected": "low"}
+{"id": "clld_19b", "sentence": "Καθέναν, γνωρίζω από κοντά.", "phenomenon": "clld", "condition": "kathe_bare", "expected": "low"}
+{"id": "clld_20a", "sentence": "Κάθε φοιτητή, τον ξέρω από τα μαθήματα.", "phenomenon": "clld", "condition": "kathe_doubled", "expected": "low"}
+{"id": "clld_20b", "sentence": "Κάθε φοιτητή, ξέρω από τα μαθήματα.", "phenomenon": "clld", "condition": "kathe_bare", "expected": "low"}
+{"id": "clld_21a", "sentence": "Οποιονδήποτε, τον περίμενα.", "phenomenon": "clld", "condition": "kathe_doubled", "expected": "low"}
+{"id": "clld_21b", "sentence": "Οποιονδήποτε, περίμενα.", "phenomenon": "clld", "condition": "kathe_bare", "expected": "low"}
+{"id": "clld_22a", "sentence": "Κανέναν, δεν τον είδα στο πάρτι.", "phenomenon": "clld", "condition": "kanenan_doubled", "expected": "mid"}
+{"id": "clld_22b", "sentence": "Κανέναν, δεν είδα στο πάρτι.", "phenomenon": "clld", "condition": "kanenan_bare", "expected": "low"}
+{"id": "clld_23a", "sentence": "Καμία κοπέλα, δεν την είδα στην παραλία.", "phenomenon": "clld", "condition": "kanenan_doubled", "expected": "mid"}
+{"id": "clld_23b", "sentence": "Καμία κοπέλα, δεν είδα στην παραλία.", "phenomenon": "clld", "condition": "kanenan_bare", "expected": "low"}
+{"id": "clld_24a", "sentence": "Κανέναν φοιτητή, δεν τον γνωρίζω.", "phenomenon": "clld", "condition": "kanenan_doubled", "expected": "mid"}
+{"id": "clld_24b", "sentence": "Κανέναν φοιτητή, δεν γνωρίζω.", "phenomenon": "clld", "condition": "kanenan_bare", "expected": "low"}
+{"id": "clld_25a", "sentence": "ΤΟ ΒΙΒΛΙΟ, ο Γιάννης το διάβασε.", "phenomenon": "clld", "condition": "focus_doubled", "expected": "low"}
+{"id": "clld_25b", "sentence": "ΤΟ ΒΙΒΛΙΟ διάβασε ο Γιάννης.", "phenomenon": "clld", "condition": "focus_bare", "expected": "high"}
+{"id": "clld_26a", "sentence": "ΤΟ ΓΡΑΜΜΑ, η Μαρία το έστειλε.", "phenomenon": "clld", "condition": "focus_doubled", "expected": "low"}
+{"id": "clld_26b", "sentence": "ΤΟ ΓΡΑΜΜΑ έστειλε η Μαρία.", "phenomenon": "clld", "condition": "focus_bare", "expected": "high"}
+{"id": "clld_27a", "sentence": "ΤΟ ΚΛΕΙΔΙ, ο Κώστας το έχασε.", "phenomenon": "clld", "condition": "focus_doubled", "expected": "low"}
+{"id": "clld_27b", "sentence": "ΤΟ ΚΛΕΙΔΙ έχασε ο Κώστας.", "phenomenon": "clld", "condition": "focus_bare", "expected": "high"}
+{"id": "clld_28a", "sentence": "Νομίζω ότι τον Γιάννη, τον είδε η Μαρία.", "phenomenon": "clld", "condition": "embedded_doubled", "expected": "high"}
+{"id": "clld_28b", "sentence": "Νομίζω ότι τον Γιάννη, είδε η Μαρία.", "phenomenon": "clld", "condition": "embedded_bare", "expected": "low"}
+{"id": "clld_29a", "sentence": "Πιστεύω ότι τη Μαρία, τη γνωρίζει ο Κώστας.", "phenomenon": "clld", "condition": "embedded_doubled", "expected": "high"}
+{"id": "clld_29b", "sentence": "Πιστεύω ότι τη Μαρία, γνωρίζει ο Κώστας.", "phenomenon": "clld", "condition": "embedded_bare", "expected": "low"}
+{"id": "clld_30a", "sentence": "Λένε ότι τον Νίκο, τον αγαπάει η Ελένη.", "phenomenon": "clld", "condition": "embedded_doubled", "expected": "high"}
+{"id": "clld_30b", "sentence": "Λένε ότι τον Νίκο, αγαπάει η Ελένη.", "phenomenon": "clld", "condition": "embedded_bare", "expected": "low"}
+{"id": "clld_31a", "sentence": "Τον Γιάννη, φύγαμε πριν τον δούμε.", "phenomenon": "clld", "condition": "island_temporal_doubled", "expected": "mid"}
+{"id": "clld_31b", "sentence": "Τον Γιάννη, φύγαμε πριν δούμε.", "phenomenon": "clld", "condition": "island_temporal_bare", "expected": "low"}
+{"id": "clld_32a", "sentence": "Τη Μαρία, φύγαμε επειδή τη συναντήσαμε.", "phenomenon": "clld", "condition": "island_causal_doubled", "expected": "mid"}
+{"id": "clld_32b", "sentence": "Τη Μαρία, φύγαμε επειδή συναντήσαμε.", "phenomenon": "clld", "condition": "island_causal_bare", "expected": "low"}
+{"id": "clld_33a", "sentence": "Τον Κώστα, ξέρω τη γυναίκα που τον παντρεύτηκε.", "phenomenon": "clld", "condition": "island_relative_doubled", "expected": "low"}
+{"id": "clld_33b", "sentence": "Τον Κώστα, ξέρω τη γυναίκα που παντρεύτηκε.", "phenomenon": "clld", "condition": "island_relative_bare", "expected": "low"}
+{"id": "clld_34a", "sentence": "Τον Γιάννη, νομίζω ότι τον είδε η Μαρία.", "phenomenon": "clld", "condition": "island_complement_doubled", "expected": "high"}
+{"id": "clld_34b", "sentence": "Τον Γιάννη, νομίζω ότι είδε η Μαρία.", "phenomenon": "clld", "condition": "island_complement_bare", "expected": "low"}

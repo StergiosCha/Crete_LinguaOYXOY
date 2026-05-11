@@ -1,0 +1,87 @@
+{
+  "_README": "STUDENTS: Choose 6-8 models from this list. Models starting with _ are candidates — remove the _ to activate them. All run on our Azure endpoint (crete-xamoulis-resource). Ask Stergios to deploy new ones if needed.",
+  "_TASK": "Research each model: Is it open or closed? How many parameters? Who made it? Why might it be good/bad for Greek? Write your justification in the report.",
+
+  "_DEPLOYED (ready to use)": "───────────────────────────────",
+
+  "gpt-4o": {
+    "type": "azure_openai",
+    "deployment": "gpt-4o",
+    "category": "closed",
+    "size": "unknown (large)",
+    "provider": "OpenAI"
+  },
+  "gpt-5.4-pro": {
+    "type": "gpt54_responses",
+    "deployment": "gpt-5.4-pro",
+    "category": "closed",
+    "size": "unknown (very large)",
+    "provider": "OpenAI",
+    "notes": "Reasoning model. Slow, no temperature support."
+  },
+  "DeepSeek-V3.1": {
+    "type": "azure_ai",
+    "deployment": "DeepSeek-V3.1",
+    "category": "open",
+    "size": "685B MoE (~37B active)",
+    "provider": "DeepSeek"
+  },
+  "Llama-3.3-70B": {
+    "type": "azure_ai",
+    "deployment": "Llama-3.3-70B-Instruct",
+    "category": "open",
+    "size": "70B",
+    "provider": "Meta"
+  },
+
+  "_CANDIDATES (ask Stergios to deploy)": "───────────────────────────────",
+
+  "_Mistral-Large": {
+    "type": "azure_ai",
+    "deployment": "Mistral-Large",
+    "category": "open",
+    "size": "123B",
+    "provider": "Mistral",
+    "notes": "Strong multilingual. Available in Azure AI model catalog."
+  },
+  "_Phi-4": {
+    "type": "azure_ai",
+    "deployment": "Phi-4",
+    "category": "open",
+    "size": "14B",
+    "provider": "Microsoft",
+    "notes": "Small model. Tests if size matters for Greek judgments."
+  },
+  "_Qwen2.5-72B": {
+    "type": "azure_ai",
+    "deployment": "Qwen2.5-72B-Instruct",
+    "category": "open",
+    "size": "72B",
+    "provider": "Alibaba",
+    "notes": "Strong multilingual open model. Available in Azure AI catalog."
+  },
+  "_Llama-3.3-8B": {
+    "type": "azure_ai",
+    "deployment": "Llama-3.3-8B-Instruct",
+    "category": "open",
+    "size": "8B",
+    "provider": "Meta",
+    "notes": "Small Llama. Direct comparison with 70B — does 9x more params help?"
+  },
+  "_Gemma-2-27B": {
+    "type": "azure_ai",
+    "deployment": "Gemma-2-27B-IT",
+    "category": "open",
+    "size": "27B",
+    "provider": "Google",
+    "notes": "Medium open model. Available in Azure AI catalog."
+  },
+  "_Cohere-Command-R-Plus": {
+    "type": "azure_ai",
+    "deployment": "Cohere-command-r-plus",
+    "category": "closed",
+    "size": "104B",
+    "provider": "Cohere",
+    "notes": "Good multilingual. Available in Azure AI catalog."
+  }
+}

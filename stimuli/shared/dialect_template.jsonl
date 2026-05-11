@@ -1,0 +1,8 @@
+{"id": "dial_cyp_01a", "sentence": "Εν θέλω να πάω αύριο.", "phenomenon": "dialect", "condition": "cypriot_target", "dialect": "cypriot", "expected": "high", "notes": "Cypriot form under Cypriot prompt — should rate high"}
+{"id": "dial_cyp_01b", "sentence": "Δεν θέλω να πάω αύριο.", "phenomenon": "dialect", "condition": "smg_under_cypriot", "dialect": "cypriot", "expected": "low", "notes": "SMG form under Cypriot prompt — should rate lower"}
+{"id": "dial_cyp_02a", "sentence": "Τζιαι τούτος εν ήρτεν.", "phenomenon": "dialect", "condition": "cypriot_target", "dialect": "cypriot", "expected": "high", "notes": "Cypriot conjunction + negation"}
+{"id": "dial_cyp_02b", "sentence": "Και αυτός δεν ήρθε.", "phenomenon": "dialect", "condition": "smg_under_cypriot", "dialect": "cypriot", "expected": "low", "notes": "SMG equivalent under Cypriot prompt"}
+{"id": "dial_pon_01a", "sentence": "Εσείς εκείν ατός εν.", "phenomenon": "dialect", "condition": "pontic_target", "dialect": "pontic", "expected": "high", "notes": "Pontic form under Pontic prompt — should rate high"}
+{"id": "dial_pon_01b", "sentence": "Αυτός είναι εκείνος.", "phenomenon": "dialect", "condition": "smg_under_pontic", "dialect": "pontic", "expected": "low", "notes": "SMG form under Pontic prompt — should rate lower"}
+{"id": "dial_cret_01a", "sentence": "Εντά θωρείς εκεί;", "phenomenon": "dialect", "condition": "cretan_target", "dialect": "cretan", "expected": "high", "notes": "Cretan form under Cretan prompt — should rate high"}
+{"id": "dial_cret_01b", "sentence": "Τι βλέπεις εκεί;", "phenomenon": "dialect", "condition": "smg_under_cretan", "dialect": "cretan", "expected": "low", "notes": "SMG form under Cretan prompt — should rate lower"}

@@ -1,0 +1,24 @@
+{"id": "bind_01a", "sentence": "Ο Γιάννης αγαπάει τον εαυτό του.", "phenomenon": "binding", "condition": "reflexive_local", "expected": "high"}
+{"id": "bind_02a", "sentence": "Η Μαρία θαυμάζει τον εαυτό της.", "phenomenon": "binding", "condition": "reflexive_local", "expected": "high"}
+{"id": "bind_03a", "sentence": "Ο Κώστας κοιτάζει τον εαυτό του στον καθρέφτη.", "phenomenon": "binding", "condition": "reflexive_local", "expected": "high"}
+{"id": "bind_04a", "sentence": "Ο Γιάννης νομίζει ότι η Μαρία αγαπάει τον εαυτό του.", "phenomenon": "binding", "condition": "reflexive_nonlocal", "expected": "low"}
+{"id": "bind_05a", "sentence": "Η Μαρία νομίζει ότι ο Κώστας θαυμάζει τον εαυτό της.", "phenomenon": "binding", "condition": "reflexive_nonlocal", "expected": "low"}
+{"id": "bind_06a", "sentence": "Ο Κώστας λέει ότι η Ελένη κοιτάζει τον εαυτό του.", "phenomenon": "binding", "condition": "reflexive_nonlocal", "expected": "low"}
+{"id": "bind_07a", "sentence": "Ο Γιάννης τον είδε στο δρόμο.", "phenomenon": "binding", "condition": "pronoun_free", "expected": "high"}
+{"id": "bind_08a", "sentence": "Η Μαρία την είδε στο μαγαζί.", "phenomenon": "binding", "condition": "pronoun_free", "expected": "high"}
+{"id": "bind_09a", "sentence": "Ο Κώστας τον χαιρέτησε.", "phenomenon": "binding", "condition": "pronoun_free", "expected": "high"}
+{"id": "bind_10a", "sentence": "Ο Γιάννης είδε αυτόν στο δρόμο.", "phenomenon": "binding", "condition": "pronoun_local_coref", "expected": "low"}
+{"id": "bind_11a", "sentence": "Η Μαρία είδε αυτήν στο μαγαζί.", "phenomenon": "binding", "condition": "pronoun_local_coref", "expected": "low"}
+{"id": "bind_12a", "sentence": "Ο Κώστας χαιρέτησε αυτόν.", "phenomenon": "binding", "condition": "pronoun_local_coref", "expected": "low"}
+{"id": "bind_13a", "sentence": "Ο Γιάννης νομίζει ότι η Μαρία τον αγαπάει.", "phenomenon": "binding", "condition": "pronoun_nonlocal", "expected": "high"}
+{"id": "bind_14a", "sentence": "Η Μαρία πιστεύει ότι ο Κώστας την θαυμάζει.", "phenomenon": "binding", "condition": "pronoun_nonlocal", "expected": "high"}
+{"id": "bind_15a", "sentence": "Ο Κώστας λέει ότι η Ελένη τον γνωρίζει.", "phenomenon": "binding", "condition": "pronoun_nonlocal", "expected": "high"}
+{"id": "bind_16a", "sentence": "Κάθε φοιτητής αγαπάει τον εαυτό του.", "phenomenon": "binding", "condition": "quant_kathe_reflexive", "expected": "high"}
+{"id": "bind_17a", "sentence": "Κάθε μαθήτρια πιστεύει στον εαυτό της.", "phenomenon": "binding", "condition": "quant_kathe_reflexive", "expected": "high"}
+{"id": "bind_18a", "sentence": "Κάθε εργαζόμενος κοιτάζει τον εαυτό του.", "phenomenon": "binding", "condition": "quant_kathe_reflexive", "expected": "high"}
+{"id": "bind_19a", "sentence": "Κανένας φοιτητής δεν αγαπάει τον εαυτό του.", "phenomenon": "binding", "condition": "quant_kanenan_reflexive", "expected": "mid"}
+{"id": "bind_20a", "sentence": "Καμία μαθήτρια δεν πιστεύει στον εαυτό της.", "phenomenon": "binding", "condition": "quant_kanenan_reflexive", "expected": "mid"}
+{"id": "bind_21a", "sentence": "Κανένας δεν κοιτάζει τον εαυτό του στον καθρέφτη.", "phenomenon": "binding", "condition": "quant_kanenan_reflexive", "expected": "mid"}
+{"id": "bind_22a", "sentence": "Τον εαυτό του αγαπάει κάθε φοιτητής.", "phenomenon": "binding", "condition": "reflexive_fronted", "expected": "mid"}
+{"id": "bind_23a", "sentence": "Στον εαυτό της πιστεύει κάθε μαθήτρια.", "phenomenon": "binding", "condition": "reflexive_fronted", "expected": "mid"}
+{"id": "bind_24a", "sentence": "Τον εαυτό του κοιτάζει κάθε εργαζόμενος.", "phenomenon": "binding", "condition": "reflexive_fronted", "expected": "mid"}

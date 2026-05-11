@@ -1,0 +1,27 @@
+{"id": "co_01a", "sentence": "Ποιον είδε αυτός τελικά;", "phenomenon": "crossover", "condition": "sco_wh_resumptive", "expected": "mid"}
+{"id": "co_02a", "sentence": "Ποιον γιατρό εμπιστεύεται αυτός τελικά;", "phenomenon": "crossover", "condition": "sco_wh_resumptive", "expected": "mid"}
+{"id": "co_03a", "sentence": "Ποιον παππού αγαπάει αυτός περισσότερο;", "phenomenon": "crossover", "condition": "sco_wh_resumptive", "expected": "mid"}
+{"id": "co_04a", "sentence": "Ποιον γιατρό τον εμπιστεύεται αυτός;", "phenomenon": "crossover", "condition": "sco_wh_restrictive", "expected": "mid"}
+{"id": "co_05a", "sentence": "Ποια ηθοποιό την λατρεύει ο σύντροφός της;", "phenomenon": "crossover", "condition": "sco_wh_restrictive", "expected": "mid"}
+{"id": "co_06a", "sentence": "Ποιο παιδί το χαϊδεύει η γιαγιά του;", "phenomenon": "crossover", "condition": "sco_wh_restrictive", "expected": "mid"}
+{"id": "co_07a", "sentence": "Ποιον γιατρό εμπιστεύεται η γυναίκα του;", "phenomenon": "crossover", "condition": "wco_wh_possessive", "expected": "mid"}
+{"id": "co_08a", "sentence": "Ποιον πολιτικό ψηφίζει η οικογένειά του;", "phenomenon": "crossover", "condition": "wco_wh_possessive", "expected": "mid"}
+{"id": "co_09a", "sentence": "Ποιον καθηγητή θαυμάζει η μητέρα του;", "phenomenon": "crossover", "condition": "wco_wh_possessive", "expected": "mid"}
+{"id": "co_10a", "sentence": "Ποιον νομίζει η μητέρα του ότι είδε η Μαρία;", "phenomenon": "crossover", "condition": "wco_long_distance", "expected": "low"}
+{"id": "co_11a", "sentence": "Ποιον πιστεύει ο πατέρας του ότι κάλεσε η Ελένη;", "phenomenon": "crossover", "condition": "wco_long_distance", "expected": "low"}
+{"id": "co_12a", "sentence": "Ποιον λέει η δασκάλα του ότι βοήθησε ο Κώστας;", "phenomenon": "crossover", "condition": "wco_long_distance", "expected": "low"}
+{"id": "co_13a", "sentence": "Τον Γιάννη τον αγαπάει η μητέρα του.", "phenomenon": "crossover", "condition": "clld_bound", "expected": "high"}
+{"id": "co_14a", "sentence": "Τον Κώστα τον θαυμάζει η δασκάλα του.", "phenomenon": "crossover", "condition": "clld_bound", "expected": "high"}
+{"id": "co_15a", "sentence": "Τον Νίκο τον στηρίζει ο πατέρας του.", "phenomenon": "crossover", "condition": "clld_bound", "expected": "high"}
+{"id": "co_16a", "sentence": "Κάθε φοιτητή φοβάται ο συμφοιτητής του.", "phenomenon": "crossover", "condition": "quant_kathe_bound", "expected": "mid"}
+{"id": "co_17a", "sentence": "Κάθε μαθητή βοηθάει ο δάσκαλός του.", "phenomenon": "crossover", "condition": "quant_kathe_bound", "expected": "mid"}
+{"id": "co_18a", "sentence": "Κάθε γιατρό εμπιστεύεται ο ασθενής του.", "phenomenon": "crossover", "condition": "quant_kathe_bound", "expected": "mid"}
+{"id": "co_19a", "sentence": "Κανέναν φοιτητή δεν εκτιμά ο καθηγητής του.", "phenomenon": "crossover", "condition": "quant_kanenan_bound", "expected": "low"}
+{"id": "co_20a", "sentence": "Κανέναν πελάτη δεν εξυπηρετεί ο υπάλληλός του σωστά.", "phenomenon": "crossover", "condition": "quant_kanenan_bound", "expected": "low"}
+{"id": "co_21a", "sentence": "Κανέναν μαθητή δεν βοηθάει ο δάσκαλός του.", "phenomenon": "crossover", "condition": "quant_kanenan_bound", "expected": "low"}
+{"id": "co_22a", "sentence": "Μερικούς φοιτητές ξεχωρίζει πάντα ο καθηγητής τους.", "phenomenon": "crossover", "condition": "quant_merikous_bound", "expected": "mid"}
+{"id": "co_23a", "sentence": "Πολλούς φοιτητές βοηθά ο καθηγητής τους.", "phenomenon": "crossover", "condition": "quant_merikous_bound", "expected": "mid"}
+{"id": "co_24a", "sentence": "Αρκετούς φίλους είδε η παρέα τους χτες.", "phenomenon": "crossover", "condition": "quant_merikous_bound", "expected": "mid"}
+{"id": "co_25a", "sentence": "Η μητέρα του αγαπάει τον Γιάννη.", "phenomenon": "crossover", "condition": "baseline", "expected": "high"}
+{"id": "co_26a", "sentence": "Ο πατέρας του στηρίζει τον Κώστα.", "phenomenon": "crossover", "condition": "baseline", "expected": "high"}
+{"id": "co_27a", "sentence": "Η δασκάλα του θαυμάζει τον Νίκο.", "phenomenon": "crossover", "condition": "baseline", "expected": "high"}
