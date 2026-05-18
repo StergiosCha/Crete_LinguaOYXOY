@@ -1,87 +1,78 @@
 {
-  "_README": "STUDENTS: Choose 6-8 models from this list. Models starting with _ are candidates — remove the _ to activate them. All run on our Azure endpoint (crete-xamoulis-resource). Ask Stergios to deploy new ones if needed.",
-  "_TASK": "Research each model: Is it open or closed? How many parameters? Who made it? Why might it be good/bad for Greek? Write your justification in the report.",
-
-  "_DEPLOYED (ready to use)": "───────────────────────────────",
+  "_README": "All models deployed on crete-xamoulis-resource. 10 models, 5 providers.",
 
   "gpt-4o": {
     "type": "azure_openai",
     "deployment": "gpt-4o",
     "category": "closed",
     "size": "unknown (large)",
-    "provider": "OpenAI"
-  },
-  "gpt-5.4-pro": {
-    "type": "gpt54_responses",
-    "deployment": "gpt-5.4-pro",
-    "category": "closed",
-    "size": "unknown (very large)",
     "provider": "OpenAI",
-    "notes": "Reasoning model. Slow, no temperature support."
+    "reasoning": false
   },
   "DeepSeek-V3.1": {
     "type": "azure_ai",
     "deployment": "DeepSeek-V3.1",
     "category": "open",
     "size": "685B MoE (~37B active)",
-    "provider": "DeepSeek"
+    "provider": "DeepSeek",
+    "reasoning": false
+  },
+  "DeepSeek-V4-Pro": {
+    "type": "azure_ai",
+    "deployment": "DeepSeek-V4-Pro",
+    "category": "open",
+    "size": "unknown (large MoE)",
+    "provider": "DeepSeek",
+    "reasoning": false
+  },
+  "DeepSeek-V4-Flash": {
+    "type": "azure_ai",
+    "deployment": "DeepSeek-V4-Flash",
+    "category": "open",
+    "size": "unknown (MoE, fast)",
+    "provider": "DeepSeek",
+    "reasoning": false
+  },
+  "DeepSeek-R1": {
+    "type": "azure_ai",
+    "deployment": "DeepSeek-R1",
+    "category": "open",
+    "size": "685B MoE (~37B active)",
+    "provider": "DeepSeek",
+    "reasoning": true,
+    "notes": "Reasoning model. Outputs <think>...</think> before answer."
   },
   "Llama-3.3-70B": {
     "type": "azure_ai",
     "deployment": "Llama-3.3-70B-Instruct",
     "category": "open",
     "size": "70B",
-    "provider": "Meta"
+    "provider": "Meta",
+    "reasoning": false
   },
-
-  "_CANDIDATES (ask Stergios to deploy)": "───────────────────────────────",
-
-  "_Mistral-Large": {
+  "Mistral-Large-3": {
     "type": "azure_ai",
-    "deployment": "Mistral-Large",
+    "deployment": "Mistral-Large-3",
     "category": "open",
     "size": "123B",
     "provider": "Mistral",
-    "notes": "Strong multilingual. Available in Azure AI model catalog."
+    "reasoning": false
   },
-  "_Phi-4": {
+  "grok-4-20-non-reasoning": {
     "type": "azure_ai",
-    "deployment": "Phi-4",
-    "category": "open",
-    "size": "14B",
-    "provider": "Microsoft",
-    "notes": "Small model. Tests if size matters for Greek judgments."
-  },
-  "_Qwen2.5-72B": {
-    "type": "azure_ai",
-    "deployment": "Qwen2.5-72B-Instruct",
-    "category": "open",
-    "size": "72B",
-    "provider": "Alibaba",
-    "notes": "Strong multilingual open model. Available in Azure AI catalog."
-  },
-  "_Llama-3.3-8B": {
-    "type": "azure_ai",
-    "deployment": "Llama-3.3-8B-Instruct",
-    "category": "open",
-    "size": "8B",
-    "provider": "Meta",
-    "notes": "Small Llama. Direct comparison with 70B — does 9x more params help?"
-  },
-  "_Gemma-2-27B": {
-    "type": "azure_ai",
-    "deployment": "Gemma-2-27B-IT",
-    "category": "open",
-    "size": "27B",
-    "provider": "Google",
-    "notes": "Medium open model. Available in Azure AI catalog."
-  },
-  "_Cohere-Command-R-Plus": {
-    "type": "azure_ai",
-    "deployment": "Cohere-command-r-plus",
+    "deployment": "grok-4-20-non-reasoning",
     "category": "closed",
-    "size": "104B",
-    "provider": "Cohere",
-    "notes": "Good multilingual. Available in Azure AI catalog."
+    "size": "unknown (large)",
+    "provider": "xAI",
+    "reasoning": false
+  },
+  "grok-4-1-fast-reasoning": {
+    "type": "azure_ai",
+    "deployment": "grok-4-1-fast-reasoning",
+    "category": "closed",
+    "size": "unknown (large)",
+    "provider": "xAI",
+    "reasoning": true,
+    "notes": "Reasoning model. May output thinking tokens."
   }
 }
