@@ -35,7 +35,6 @@ import time
 import argparse
 import random
 from datetime import datetime
-from collections import defaultdict
 
 # ============================================================
 # CONFIG (same Azure setup as main experiment)
@@ -147,57 +146,14 @@ def load_polydefinite_stimuli():
                 continue
             item = json.loads(line)
             if item.get("phenomenon") == "polydefinite":
+                # Default condition to id if not present
+                if "condition" not in item:
+                    item["condition"] = item["id"]
                 items.append(item)
 
     return items
 
 
-def group_into_pairs(items):
-    """Group polydefinite items into minimal pairs (poly vs mono).
-
-    Returns list of dicts with 'context_label', 'poly_item', 'mono_item'.
-    Items are paired by shared context or by condition naming pattern.
-    """
-    # Group by context (items sharing the same context are pairs)
-    by_context = defaultdict(list)
-    for item in items:
-        ctx = item.get("context", "")
-        by_context[ctx].append(item)
-
-    pairs = []
-    used = set()
-
-    for ctx, group in by_context.items():
-        if len(group) < 2:
-            continue
-        # Find poly and mono variants
-        polys = [i for i in group if "poly" in i["condition"]]
-        monos = [i for i in group if "mono" in i["condition"]]
-
-        for p in polys:
-            # Try to find matching mono
-            # Match by condition prefix (e.g., unique_polydefinite <-> unique_monodefinite)
-            prefix = p["condition"].replace("polydefinite", "").replace("poly", "").rstrip("_")
-            matched = None
-            for m in monos:
-                m_prefix = m["condition"].replace("monodefinite", "").replace("mono", "").rstrip("_")
-                if prefix == m_prefix and m["id"] not in used:
-                    matched = m
-                    break
-
-            if matched:
-                pairs.append({
-                    "context_label": prefix or "base",
-                    "poly": p,
-                    "mono": matched,
-                })
-                used.add(p["id"])
-                used.add(matched["id"])
-
-    # Also collect unpaired items (e.g., right_disloc, inverted)
-    unpaired = [i for i in items if i["id"] not in used]
-
-    return pairs, unpaired
 
 
 # ============================================================
@@ -308,10 +264,8 @@ def run_polydefinite_experiment(items, model_names, n_reps=10, temperature=0.7, 
             _save_checkpoint(results, list(done_keys))
 
             pct = done / total * 100
-            is_poly = "poly" in item["condition"]
-            tag = "POLY" if is_poly else "MONO" if "mono" in item["condition"] else "OTHER"
             status = f"M={mean_rating:.1f}" if mean_rating else "---"
-            print(f"  [{pct:5.1f}%] {item['id']:<8} {tag:<5} {item['condition']:<30} {status}  ({len(ratings)}/{n_reps})")
+            print(f"  [{pct:5.1f}%] {item['id']:<12} {status}  ({len(ratings)}/{n_reps})")
 
     # Clear checkpoint on successful completion
     _clear_checkpoint()
@@ -323,91 +277,31 @@ def run_polydefinite_experiment(items, model_names, n_reps=10, temperature=0.7, 
 # ============================================================
 
 def analyze_polydefinite(results):
-    """Focused analysis of polydefinite results."""
+    """Per-item analysis of polydefinite results."""
     print(f"\n{'='*70}")
     print(f"  POLYDEFINITE ANALYSIS")
     print(f"{'='*70}")
 
     models = sorted(set(r["model"] for r in results))
 
-    # 1. Overall poly vs mono
-    print(f"\n  1. OVERALL: polydefinite vs monodefinite")
-    print(f"  {'-'*50}")
-    for model in models:
-        mr = [r for r in results if r["model"] == model]
-        poly_ratings = []
-        mono_ratings = []
-        for r in mr:
-            if r["mean"] is None:
-                continue
-            if "poly" in r["condition"]:
-                poly_ratings.extend(r["ratings"])
-            elif "mono" in r["condition"]:
-                mono_ratings.extend(r["ratings"])
-
-        poly_mean = sum(poly_ratings) / len(poly_ratings) if poly_ratings else 0
-        mono_mean = sum(mono_ratings) / len(mono_ratings) if mono_ratings else 0
-        diff = poly_mean - mono_mean
-        print(f"  {model:<20} poly={poly_mean:.2f} (n={len(poly_ratings)})  mono={mono_mean:.2f} (n={len(mono_ratings)})  diff={diff:+.2f}")
-
-    # 2. By context type
-    print(f"\n  2. BY CONTEXT TYPE")
-    print(f"  {'-'*50}")
-
-    # Group conditions into context types
-    context_types = {
-        "uniqueness": ["unique_polydefinite", "unique_monodefinite", "nonunique_polydefinite", "nonunique_monodefinite"],
-        "contrast": ["contrast_polydefinite_a", "contrast_polydefinite_b", "contrast_monodefinite_a", "contrast_monodefinite_b"],
-        "deictic": [c for c in set(r["condition"] for r in results) if "deictic" in c],
-        "inanimate": [c for c in set(r["condition"] for r in results) if "inanimate" in c],
-        "possessive": [c for c in set(r["condition"] for r in results) if "possessive" in c],
-        "epithet": [c for c in set(r["condition"] for r in results) if "epithet" in c],
-        "narrative": [c for c in set(r["condition"] for r in results) if "narrative" in c],
-    }
-
-    for model in models:
-        print(f"\n  Model: {model}")
-        mr = [r for r in results if r["model"] == model]
-
-        for ctx_name, conditions in sorted(context_types.items()):
-            ctx_results = [r for r in mr if r["condition"] in conditions]
-            if not ctx_results:
-                continue
-
-            poly_r = [r for r in ctx_results if "poly" in r["condition"]]
-            mono_r = [r for r in ctx_results if "mono" in r["condition"]]
-
-            poly_ratings = []
-            for r in poly_r:
-                poly_ratings.extend(r["ratings"])
-            mono_ratings = []
-            for r in mono_r:
-                mono_ratings.extend(r["ratings"])
-
-            poly_mean = sum(poly_ratings) / len(poly_ratings) if poly_ratings else 0
-            mono_mean = sum(mono_ratings) / len(mono_ratings) if mono_ratings else 0
-            diff = poly_mean - mono_mean
-
-            print(f"    {ctx_name:<15} poly={poly_mean:.2f}  mono={mono_mean:.2f}  diff={diff:+.2f}")
-
-    # 3. Per item detail
-    print(f"\n  3. PER ITEM DETAIL")
+    # 1. Per item detail
+    print(f"\n  1. PER ITEM DETAIL")
     print(f"  {'-'*50}")
 
     for model in models:
         print(f"\n  Model: {model}")
         mr = sorted([r for r in results if r["model"] == model], key=lambda r: r["id"])
-        header = f"    {'ID':<8} {'Condition':<32} {'Exp':<5} {'Mean':>5} {'SD':>5}"
+        header = f"    {'ID':<12} {'Exp':<5} {'Mean':>5} {'SD':>5}"
         print(header)
-        print(f"    {'-'*60}")
+        print(f"    {'-'*35}")
         for r in mr:
             exp = r.get("expected", "")
             mean_str = f"{r['mean']:.1f}" if r["mean"] is not None else "---"
             sd_str = f"{r['sd']:.1f}" if r.get("sd") is not None else "---"
-            print(f"    {r['id']:<8} {r['condition']:<32} {exp:<5} {mean_str:>5} {sd_str:>5}")
+            print(f"    {r['id']:<12} {exp:<5} {mean_str:>5} {sd_str:>5}")
 
-    # 4. Expected vs observed direction
-    print(f"\n  4. EXPECTED vs OBSERVED")
+    # 2. Expected vs observed direction
+    print(f"\n  2. EXPECTED vs OBSERVED")
     print(f"  {'-'*50}")
 
     for model in models:
@@ -432,35 +326,16 @@ def analyze_polydefinite(results):
             print(f"    Direction match: {match}/{total_checked} ({match/total_checked:.0%})")
             print(f"    (high >= 7.0, mid = 4.0-7.0, low <= 4.0)")
 
-    # 5. Key hypothesis tests (descriptive)
-    print(f"\n  5. KEY CONTRASTS")
+    # 3. Summary per model
+    print(f"\n  3. SUMMARY PER MODEL")
     print(f"  {'-'*50}")
-    print(f"  The core prediction: polydefinite is BETTER than mono when")
-    print(f"  there is pragmatic motivation (nonunique, contrast, deixis).")
-    print(f"  Polydefinite is WORSE or EQUAL to mono when there is no")
-    print(f"  pragmatic motivation (unique reference, inanimate, new info).")
-
     for model in models:
-        print(f"\n  Model: {model}")
-        mr = {r["condition"]: r for r in results if r["model"] == model and r["mean"] is not None}
-
-        contrasts = [
-            ("nonunique_polydefinite", "nonunique_monodefinite", "poly should be >= mono (nonunique)"),
-            ("unique_polydefinite", "unique_monodefinite", "poly should be < mono (unique)"),
-            ("contrast_polydefinite_a", "contrast_monodefinite_a", "poly should be >= mono (contrast)"),
-            ("deictic_poly_no_rel", "deictic_mono_no_rel", "poly should be >= mono (deictic)"),
-            ("inanimate_polydefinite", "inanimate_monodefinite", "poly should be <= mono (inanimate)"),
-            ("possessive_old_info_poly", "possessive_old_info_mono", "poly should be ~= mono (old info)"),
-            ("possessive_new_info_poly", "possessive_new_info_mono", "poly should be < mono (new info)"),
-        ]
-
-        for cond_a, cond_b, prediction in contrasts:
-            if cond_a in mr and cond_b in mr:
-                a = mr[cond_a]["mean"]
-                b = mr[cond_b]["mean"]
-                diff = a - b
-                print(f"    {cond_a:<30} {a:.1f} vs {cond_b:<30} {b:.1f}  diff={diff:+.1f}")
-                print(f"      Prediction: {prediction}")
+        mr = [r for r in results if r["model"] == model and r["mean"] is not None]
+        if not mr:
+            continue
+        all_means = [r["mean"] for r in mr]
+        overall = sum(all_means) / len(all_means)
+        print(f"  {model:<28} overall_mean={overall:.2f}  items={len(mr)}")
 
 
 # ============================================================
@@ -499,30 +374,10 @@ def export_csv(results, output_dir):
     csv_path = os.path.join(output_dir, f"polydefinite_{timestamp}.csv")
 
     with open(csv_path, "w", encoding="utf-8") as f:
-        f.write("item_id,model,condition,article_type,context_type,expected,rep,rating\n")
+        f.write("item_id,model,expected,rep,rating\n")
         for r in results:
-            cond = r["condition"]
-            # Determine article type
-            if "poly" in cond:
-                art = "polydefinite"
-            elif "mono" in cond:
-                art = "monodefinite"
-            elif "right_disloc" in cond:
-                art = "right_disloc"
-            elif "inverted" in cond:
-                art = "inverted"
-            else:
-                art = "other"
-
-            # Determine context type
-            ctx = "other"
-            for label in ["unique", "nonunique", "contrast", "deictic", "inanimate", "possessive", "epithet", "narrative"]:
-                if label in cond:
-                    ctx = label
-                    break
-
             for rep_i, rating in enumerate(r["ratings"], 1):
-                f.write(f"{r['id']},{r['model']},{cond},{art},{ctx},{r.get('expected','')},{rep_i},{rating}\n")
+                f.write(f"{r['id']},{r['model']},{r.get('expected','')},{rep_i},{rating}\n")
 
     print(f"CSV exported to {csv_path}")
     return csv_path
@@ -556,10 +411,9 @@ def main():
 
     # Load stimuli
     items = load_polydefinite_stimuli()
-    pairs, unpaired = group_into_pairs(items)
 
     print(f"\nPolydefinite Experiment")
-    print(f"  Items: {len(items)} ({len(pairs)} minimal pairs, {len(unpaired)} unpaired)")
+    print(f"  Items: {len(items)}")
     print(f"  Models: {', '.join(args.models)}")
     print(f"  Reps: {args.reps}")
     print(f"  Temperature: {args.temp}")
@@ -569,14 +423,6 @@ def main():
     total_calls = len(items) * len(args.models) * args.reps
     est_min = total_calls * 0.5 / 60
     print(f"  Total API calls: {total_calls} (~{est_min:.0f} min)")
-
-    # Show pairs
-    print(f"\n  Minimal pairs:")
-    for p in pairs:
-        print(f"    {p['context_label']:<20} poly={p['poly']['id']}  mono={p['mono']['id']}")
-    if unpaired:
-        print(f"  Unpaired: {', '.join(u['id'] + ' (' + u['condition'] + ')' for u in unpaired)}")
-
     print()
 
     # Run
