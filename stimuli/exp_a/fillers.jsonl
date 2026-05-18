@@ -1,0 +1,20 @@
+{"id": "fa_01", "sentence": "Ο Γιάννης πήγε στο σχολείο.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fa_02", "sentence": "Η Μαρία μαγείρεψε μουσακά για τους φίλους της.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fa_03", "sentence": "Τα παιδιά παίζουν στην αυλή κάθε απόγευμα.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fa_04", "sentence": "Ο καθηγητής εξήγησε το μάθημα στους φοιτητές.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fa_05", "sentence": "Η γιαγιά μου ζει στο χωριό εδώ και χρόνια.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fa_06", "sentence": "Ο Νίκος τρέχει κάθε πρωί στο πάρκο.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fa_07", "sentence": "Η Ελένη αγόρασε ένα καινούργιο αυτοκίνητο.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fa_08", "sentence": "Ο σκύλος κοιμάται στον κήπο κάτω από το δέντρο.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fa_09", "sentence": "Αύριο θα πάμε εκδρομή στο βουνό.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fa_10", "sentence": "Η Άννα δουλεύει σε ένα νοσοκομείο στο κέντρο.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fa_11", "sentence": "Βιβλίο διάβασε ο Γιάννης ωραίο.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fa_12", "sentence": "Η πήγε Μαρία σχολείο στο.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fa_13", "sentence": "Εξήγησε φοιτητές στους μάθημα το.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fa_14", "sentence": "Παιδιά τα στην παίζουν αυλή.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fa_15", "sentence": "Μαγείρεψε μουσακά η ωραίο Μαρία.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fa_16", "sentence": "Ζει χωριό στο γιαγιά η μου.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fa_17", "sentence": "Κήπο στον κοιμάται ο σκύλος τον.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fa_18", "sentence": "Αγόρασε αυτοκίνητο καινούργιο ένα η Ελένη.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fa_19", "sentence": "Τρέχει πάρκο στο κάθε πρωί Νίκος ο.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fa_20", "sentence": "Νοσοκομείο ένα σε Άννα δουλεύει η.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}

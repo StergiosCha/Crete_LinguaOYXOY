@@ -1,0 +1,30 @@
+{"id": "pc_01a", "sentence": "Ο Γιάννης και η Μαρία ήρθαν.", "phenomenon": "plural_conjunction", "condition": "conj_plural_verb", "expected": "high"}
+{"id": "pc_01b", "sentence": "Ο Γιάννης και η Μαρία ήρθε.", "phenomenon": "plural_conjunction", "condition": "conj_singular_verb", "expected": "mid"}
+{"id": "pc_02a", "sentence": "Ο Κώστας και η Ελένη έφυγαν.", "phenomenon": "plural_conjunction", "condition": "conj_plural_verb", "expected": "high"}
+{"id": "pc_02b", "sentence": "Ο Κώστας και η Ελένη έφυγε.", "phenomenon": "plural_conjunction", "condition": "conj_singular_verb", "expected": "mid"}
+{"id": "pc_03a", "sentence": "Ο Νίκος και η Σοφία τραγούδησαν.", "phenomenon": "plural_conjunction", "condition": "conj_plural_verb", "expected": "high"}
+{"id": "pc_03b", "sentence": "Ο Νίκος και η Σοφία τραγούδησε.", "phenomenon": "plural_conjunction", "condition": "conj_singular_verb", "expected": "mid"}
+{"id": "pc_04a", "sentence": "Ο Γιάννης και η Μαρία αγαπιούνται.", "phenomenon": "plural_conjunction", "condition": "conj_reciprocal", "expected": "high"}
+{"id": "pc_04b", "sentence": "Ο Γιάννης αγαπιέται.", "phenomenon": "plural_conjunction", "condition": "singular_reciprocal", "expected": "low"}
+{"id": "pc_05a", "sentence": "Ο Κώστας και η Ελένη φιλήθηκαν.", "phenomenon": "plural_conjunction", "condition": "conj_reciprocal", "expected": "high"}
+{"id": "pc_05b", "sentence": "Ο Κώστας φιλήθηκε.", "phenomenon": "plural_conjunction", "condition": "singular_reciprocal", "expected": "low"}
+{"id": "pc_06a", "sentence": "Ο Νίκος και η Σοφία χαιρετήθηκαν.", "phenomenon": "plural_conjunction", "condition": "conj_reciprocal", "expected": "high"}
+{"id": "pc_06b", "sentence": "Ο Νίκος χαιρετήθηκε.", "phenomenon": "plural_conjunction", "condition": "singular_reciprocal", "expected": "low"}
+{"id": "pc_07a", "sentence": "Ο Γιάννης μαζί με τη Μαρία ήρθαν.", "phenomenon": "plural_conjunction", "condition": "comitative_plural", "expected": "mid"}
+{"id": "pc_07b", "sentence": "Ο Γιάννης μαζί με τη Μαρία ήρθε.", "phenomenon": "plural_conjunction", "condition": "comitative_singular", "expected": "high"}
+{"id": "pc_08a", "sentence": "Ο Κώστας μαζί με τον Νίκο έφυγαν.", "phenomenon": "plural_conjunction", "condition": "comitative_plural", "expected": "mid"}
+{"id": "pc_08b", "sentence": "Ο Κώστας μαζί με τον Νίκο έφυγε.", "phenomenon": "plural_conjunction", "condition": "comitative_singular", "expected": "high"}
+{"id": "pc_09a", "sentence": "Η Ελένη μαζί με τη Σοφία μαγείρεψαν.", "phenomenon": "plural_conjunction", "condition": "comitative_plural", "expected": "mid"}
+{"id": "pc_09b", "sentence": "Η Ελένη μαζί με τη Σοφία μαγείρεψε.", "phenomenon": "plural_conjunction", "condition": "comitative_singular", "expected": "high"}
+{"id": "pc_10a", "sentence": "Κάθε φοιτητής και κάθε φοιτήτρια διάβασαν.", "phenomenon": "plural_conjunction", "condition": "universal_conj_plural", "expected": "mid"}
+{"id": "pc_10b", "sentence": "Κάθε φοιτητής και κάθε φοιτήτρια διάβασε.", "phenomenon": "plural_conjunction", "condition": "universal_conj_singular", "expected": "high"}
+{"id": "pc_11a", "sentence": "Κάθε δάσκαλος και κάθε μαθητής ετοιμάστηκαν.", "phenomenon": "plural_conjunction", "condition": "universal_conj_plural", "expected": "mid"}
+{"id": "pc_11b", "sentence": "Κάθε δάσκαλος και κάθε μαθητής ετοιμάστηκε.", "phenomenon": "plural_conjunction", "condition": "universal_conj_singular", "expected": "high"}
+{"id": "pc_12a", "sentence": "Κάθε γιατρός και κάθε νοσοκόμα δούλεψαν.", "phenomenon": "plural_conjunction", "condition": "universal_conj_plural", "expected": "mid"}
+{"id": "pc_12b", "sentence": "Κάθε γιατρός και κάθε νοσοκόμα δούλεψε.", "phenomenon": "plural_conjunction", "condition": "universal_conj_singular", "expected": "high"}
+{"id": "pc_13a", "sentence": "Ο Γιάννης ή η Μαρία ήρθαν.", "phenomenon": "plural_conjunction", "condition": "disjunction_plural", "expected": "low"}
+{"id": "pc_13b", "sentence": "Ο Γιάννης ή η Μαρία ήρθε.", "phenomenon": "plural_conjunction", "condition": "disjunction_singular", "expected": "high"}
+{"id": "pc_14a", "sentence": "Ο Κώστας ή η Ελένη τηλεφώνησαν.", "phenomenon": "plural_conjunction", "condition": "disjunction_plural", "expected": "low"}
+{"id": "pc_14b", "sentence": "Ο Κώστας ή η Ελένη τηλεφώνησε.", "phenomenon": "plural_conjunction", "condition": "disjunction_singular", "expected": "high"}
+{"id": "pc_15a", "sentence": "Ο Νίκος ή η Σοφία μαγείρεψαν.", "phenomenon": "plural_conjunction", "condition": "disjunction_plural", "expected": "low"}
+{"id": "pc_15b", "sentence": "Ο Νίκος ή η Σοφία μαγείρεψε.", "phenomenon": "plural_conjunction", "condition": "disjunction_singular", "expected": "high"}

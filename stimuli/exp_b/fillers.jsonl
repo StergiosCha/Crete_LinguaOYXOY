@@ -1,0 +1,20 @@
+{"id": "fb_01", "sentence": "Ο Δημήτρης παίζει κιθάρα εδώ και χρόνια.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fb_02", "sentence": "Η μητέρα μου ετοίμασε φαγητό για όλους.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fb_03", "sentence": "Τα λουλούδια ανθίζουν την άνοιξη.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fb_04", "sentence": "Ο Πέτρος διαβάζει ένα βιβλίο στο μπαλκόνι.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fb_05", "sentence": "Το καλοκαίρι θα ταξιδέψουμε στην Κρήτη.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fb_06", "sentence": "Χθες βράδυ πήγαμε σινεμά με τους φίλους.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fb_07", "sentence": "Στο πανεπιστήμιο σπουδάζει ο αδερφός μου.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fb_08", "sentence": "Κάθε Κυριακή πηγαίνουμε περίπατο στη θάλασσα.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fb_09", "sentence": "Ο παππούς μου διαβάζει εφημερίδα κάθε πρωί.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fb_10", "sentence": "Η Κατερίνα σπουδάζει ιατρική στη Θεσσαλονίκη.", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
+{"id": "fb_11", "sentence": "Σπουδάζει μου αδερφός πανεπιστήμιο στο ο.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fb_12", "sentence": "Θάλασσα στη πηγαίνουμε Κυριακή κάθε περίπατο.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fb_13", "sentence": "Ταξιδέψουμε καλοκαίρι Κρήτη θα στην το.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fb_14", "sentence": "Βιβλίο ένα μπαλκόνι Πέτρος διαβάζει στο ο.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fb_15", "sentence": "Ανθίζουν άνοιξη λουλούδια τα την.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fb_16", "sentence": "Φαγητό ετοίμασε μου μητέρα η για όλους.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fb_17", "sentence": "Κιθάρα παίζει και εδώ Δημήτρης ο χρόνια.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fb_18", "sentence": "Εφημερίδα πρωί κάθε μου παππούς ο διαβάζει.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fb_19", "sentence": "Ιατρική Θεσσαλονίκη στη Κατερίνα η σπουδάζει.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
+{"id": "fb_20", "sentence": "Σινεμά βράδυ χθες φίλους τους με πήγαμε.", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}

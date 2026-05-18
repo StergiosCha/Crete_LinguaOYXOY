@@ -204,10 +204,34 @@ def group_into_pairs(items):
 # RUN EXPERIMENT
 # ============================================================
 
+CHECKPOINT_PATH = os.path.join(os.path.dirname(__file__), "results", "_checkpoint.json")
+
+def _load_checkpoint():
+    if os.path.exists(CHECKPOINT_PATH):
+        with open(CHECKPOINT_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {"results": [], "done_keys": []}
+
+def _save_checkpoint(results, done_keys):
+    os.makedirs(os.path.dirname(CHECKPOINT_PATH), exist_ok=True)
+    with open(CHECKPOINT_PATH, "w", encoding="utf-8") as f:
+        json.dump({"results": results, "done_keys": done_keys}, f, ensure_ascii=False)
+
+def _clear_checkpoint():
+    if os.path.exists(CHECKPOINT_PATH):
+        os.remove(CHECKPOINT_PATH)
+
 def run_polydefinite_experiment(items, model_names, n_reps=10, temperature=0.7, dry_run=False):
-    results = []
+    # Load checkpoint if resuming
+    cp = _load_checkpoint()
+    results = cp["results"]
+    done_keys = set(cp["done_keys"])
+
+    if results:
+        print(f"\n  RESUMING: {len(results)} items already done, skipping...\n")
+
     total = len(items) * len(model_names) * n_reps
-    done = 0
+    done = len(done_keys) * n_reps
 
     for model_name in model_names:
         print(f"\n{'='*60}")
@@ -215,6 +239,11 @@ def run_polydefinite_experiment(items, model_names, n_reps=10, temperature=0.7, 
         print(f"{'='*60}")
 
         for item in items:
+            key = f"{model_name}|{item['id']}"
+            if key in done_keys:
+                done += n_reps
+                continue
+
             # Present as one continuous text, same as human experiment
             if item.get("context"):
                 user_msg = f"{item['context']} {item['sentence']}"
@@ -273,6 +302,10 @@ def run_polydefinite_experiment(items, model_names, n_reps=10, temperature=0.7, 
                 "raw_responses": raw_responses,
             }
             results.append(result)
+            done_keys.add(key)
+
+            # Save checkpoint after each item
+            _save_checkpoint(results, list(done_keys))
 
             pct = done / total * 100
             is_poly = "poly" in item["condition"]
@@ -280,6 +313,8 @@ def run_polydefinite_experiment(items, model_names, n_reps=10, temperature=0.7, 
             status = f"M={mean_rating:.1f}" if mean_rating else "---"
             print(f"  [{pct:5.1f}%] {item['id']:<8} {tag:<5} {item['condition']:<30} {status}  ({len(ratings)}/{n_reps})")
 
+    # Clear checkpoint on successful completion
+    _clear_checkpoint()
     return results
 
 

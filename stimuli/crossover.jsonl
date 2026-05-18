@@ -1,0 +1,15 @@
+{"id": "co_01a", "sentence": "Ποιον είδε η μητέρα του;", "phenomenon": "crossover", "condition": "weak_crossover_wh", "expected": "mid"}
+{"id": "co_01b", "sentence": "Η μητέρα του είδε τον Γιάννη.", "phenomenon": "crossover", "condition": "baseline_bound", "expected": "high"}
+{"id": "co_02a", "sentence": "Ποιον αγαπάει η μητέρα του;", "phenomenon": "crossover", "condition": "weak_crossover_wh", "expected": "mid"}
+{"id": "co_02b", "sentence": "Η μητέρα του αγαπάει τον Κώστα.", "phenomenon": "crossover", "condition": "baseline_bound", "expected": "high"}
+{"id": "co_03a", "sentence": "Ποιον θαυμάζει η δασκάλα του;", "phenomenon": "crossover", "condition": "weak_crossover_wh", "expected": "mid"}
+{"id": "co_03b", "sentence": "Η δασκάλα του θαυμάζει τον Νίκο.", "phenomenon": "crossover", "condition": "baseline_bound", "expected": "high"}
+{"id": "co_04a", "sentence": "Τον Γιάννη τον αγαπάει η μητέρα του.", "phenomenon": "crossover", "condition": "clld_bound", "expected": "high"}
+{"id": "co_05a", "sentence": "Τον Κώστα τον θαυμάζει η δασκάλα του.", "phenomenon": "crossover", "condition": "clld_bound", "expected": "high"}
+{"id": "co_06a", "sentence": "Τον Νίκο τον στηρίζει ο πατέρας του.", "phenomenon": "crossover", "condition": "clld_bound", "expected": "high"}
+{"id": "co_07a", "sentence": "Ποιον νομίζει η μητέρα του ότι είδε η Μαρία;", "phenomenon": "crossover", "condition": "weak_crossover_long", "expected": "low"}
+{"id": "co_08a", "sentence": "Ποιον πιστεύει ο πατέρας του ότι κάλεσε η Ελένη;", "phenomenon": "crossover", "condition": "weak_crossover_long", "expected": "low"}
+{"id": "co_09a", "sentence": "Ποιον λέει η δασκάλα του ότι βοήθησε ο Κώστας;", "phenomenon": "crossover", "condition": "weak_crossover_long", "expected": "low"}
+{"id": "co_10a", "sentence": "Ο Γιάννης αγαπάει τον εαυτό του.", "phenomenon": "crossover", "condition": "reflexive_baseline", "expected": "high"}
+{"id": "co_11a", "sentence": "Η Μαρία θαυμάζει τον εαυτό της.", "phenomenon": "crossover", "condition": "reflexive_baseline", "expected": "high"}
+{"id": "co_12a", "sentence": "Ο Κώστας πιστεύει στον εαυτό του.", "phenomenon": "crossover", "condition": "reflexive_baseline", "expected": "high"}

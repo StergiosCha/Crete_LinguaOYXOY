@@ -1,0 +1,30 @@
+{"id": "clld_01a", "sentence": "Το βιβλίο, ο Γιάννης το διάβασε.", "phenomenon": "clld", "condition": "topic_root_dlinked", "expected": "high"}
+{"id": "clld_01b", "sentence": "Το βιβλίο ο Γιάννης διάβασε.", "phenomenon": "clld", "condition": "topic_no_clitic", "expected": "low"}
+{"id": "clld_02a", "sentence": "Το γράμμα, η Μαρία το έστειλε.", "phenomenon": "clld", "condition": "topic_root_dlinked", "expected": "high"}
+{"id": "clld_02b", "sentence": "Το γράμμα η Μαρία έστειλε.", "phenomenon": "clld", "condition": "topic_no_clitic", "expected": "low"}
+{"id": "clld_03a", "sentence": "Το κλειδί, ο Κώστας το έχασε.", "phenomenon": "clld", "condition": "topic_root_dlinked", "expected": "high"}
+{"id": "clld_03b", "sentence": "Το κλειδί ο Κώστας έχασε.", "phenomenon": "clld", "condition": "topic_no_clitic", "expected": "low"}
+{"id": "clld_04a", "sentence": "ΤΟ ΒΙΒΛΙΟ ο Γιάννης το διάβασε.", "phenomenon": "clld", "condition": "focus_root_doubled", "expected": "low"}
+{"id": "clld_04b", "sentence": "ΤΟ ΒΙΒΛΙΟ διάβασε ο Γιάννης.", "phenomenon": "clld", "condition": "focus_fronted_bare", "expected": "high"}
+{"id": "clld_05a", "sentence": "ΤΟ ΓΡΑΜΜΑ η Μαρία το έστειλε.", "phenomenon": "clld", "condition": "focus_root_doubled", "expected": "low"}
+{"id": "clld_05b", "sentence": "ΤΟ ΓΡΑΜΜΑ έστειλε η Μαρία.", "phenomenon": "clld", "condition": "focus_fronted_bare", "expected": "high"}
+{"id": "clld_06a", "sentence": "ΤΟ ΚΛΕΙΔΙ ο Κώστας το έχασε.", "phenomenon": "clld", "condition": "focus_root_doubled", "expected": "low"}
+{"id": "clld_06b", "sentence": "ΤΟ ΚΛΕΙΔΙ έχασε ο Κώστας.", "phenomenon": "clld", "condition": "focus_fronted_bare", "expected": "high"}
+{"id": "clld_07a", "sentence": "Νομίζω ότι το βιβλίο ο Γιάννης το διάβασε.", "phenomenon": "clld", "condition": "embedded_topic_doubled", "expected": "high"}
+{"id": "clld_07b", "sentence": "Νομίζω ότι το βιβλίο ο Γιάννης διάβασε.", "phenomenon": "clld", "condition": "embedded_topic_bare", "expected": "low"}
+{"id": "clld_08a", "sentence": "Πιστεύω ότι το γράμμα η Μαρία το έστειλε.", "phenomenon": "clld", "condition": "embedded_topic_doubled", "expected": "high"}
+{"id": "clld_08b", "sentence": "Πιστεύω ότι το γράμμα η Μαρία έστειλε.", "phenomenon": "clld", "condition": "embedded_topic_bare", "expected": "low"}
+{"id": "clld_09a", "sentence": "Λένε ότι το κλειδί ο Κώστας το έχασε.", "phenomenon": "clld", "condition": "embedded_topic_doubled", "expected": "high"}
+{"id": "clld_09b", "sentence": "Λένε ότι το κλειδί ο Κώστας έχασε.", "phenomenon": "clld", "condition": "embedded_topic_bare", "expected": "low"}
+{"id": "clld_10a", "sentence": "Τη Μαρία, ο Γιάννης τη γνωρίζει.", "phenomenon": "clld", "condition": "topic_root_proper", "expected": "high"}
+{"id": "clld_11a", "sentence": "Τον Κώστα, η Ελένη τον αγαπάει.", "phenomenon": "clld", "condition": "topic_root_proper", "expected": "high"}
+{"id": "clld_12a", "sentence": "Τη Σοφία, ο Νίκος τη θαυμάζει.", "phenomenon": "clld", "condition": "topic_root_proper", "expected": "high"}
+{"id": "clld_13a", "sentence": "Ο Γιάννης διάβασε το βιβλίο.", "phenomenon": "clld", "condition": "svo_baseline", "expected": "high"}
+{"id": "clld_14a", "sentence": "Η Μαρία έστειλε το γράμμα.", "phenomenon": "clld", "condition": "svo_baseline", "expected": "high"}
+{"id": "clld_15a", "sentence": "Ο Κώστας έχασε το κλειδί.", "phenomenon": "clld", "condition": "svo_baseline", "expected": "high"}
+{"id": "clld_16a", "sentence": "Ένα βιβλίο, ο Γιάννης το διάβασε.", "phenomenon": "clld", "condition": "indef_topic_doubled", "expected": "mid"}
+{"id": "clld_16b", "sentence": "Ένα βιβλίο, ο Γιάννης διάβασε.", "phenomenon": "clld", "condition": "indef_topic_bare", "expected": "low"}
+{"id": "clld_17a", "sentence": "Ένα γράμμα, η Μαρία το έστειλε.", "phenomenon": "clld", "condition": "indef_topic_doubled", "expected": "mid"}
+{"id": "clld_17b", "sentence": "Ένα γράμμα, η Μαρία έστειλε.", "phenomenon": "clld", "condition": "indef_topic_bare", "expected": "low"}
+{"id": "clld_18a", "sentence": "Ένα κλειδί, ο Κώστας το βρήκε.", "phenomenon": "clld", "condition": "indef_topic_doubled", "expected": "mid"}
+{"id": "clld_18b", "sentence": "Ένα κλειδί, ο Κώστας βρήκε.", "phenomenon": "clld", "condition": "indef_topic_bare", "expected": "low"}
