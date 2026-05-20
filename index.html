@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Γλωσσολογικά Πειράματα — Πανεπιστήμιο Κρήτης</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
+  /* ===== COLOR CLASSES FOR EXPERIMENT B COREFERENCE ===== */
+  /* idx-a = coreference index i (red), idx-b = index j (blue), idx-c = index k (green) */
+  .idx-a { color: #E15759; font-weight: 700; }
+  .idx-b { color: #4E79A7; font-weight: 700; }
+  .idx-c { color: #59A14F; font-weight: 700; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: #f7f8fa;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  /* Rating button styles */
+  .rating-btn {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    border: 2px solid #cbd5e0;
+    background: #fff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2d3748;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  .rating-btn:hover { border-color: #4299e1; background: #ebf8ff; transform: scale(1.08); }
+  .rating-btn:active { transform: scale(0.95); }
+  .rating-btn.selected {
+    background: #3182ce; color: #fff; border-color: #3182ce;
+    transform: scale(1.12);
+    box-shadow: 0 2px 8px rgba(49,130,206,0.4);
+  }
+
+  @media (max-width: 480px) {
+    .rating-btn { width: 44px; height: 44px; font-size: 1.1rem; }
+  }
+
+  /* Fade-in animation */
+  .fade-in {
+    animation: fadeIn 0.35s ease-in;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Flash animation on selection */
+  .flash {
+    animation: flash 0.3s ease;
+  }
+  @keyframes flash {
+    0%   { box-shadow: 0 0 0 0 rgba(49,130,206,0.5); }
+    50%  { box-shadow: 0 0 0 10px rgba(49,130,206,0); }
+    100% { box-shadow: 0 0 0 0 rgba(49,130,206,0); }
+  }
+
+  /* Progress bar */
+  .progress-fill {
+    transition: width 0.4s ease;
+  }
+
+  /* Context box */
+  .context-box {
+    background: #edf2f7;
+    border-left: 4px solid #a0aec0;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 16px;
+    font-size: 1rem;
+    color: #4a5568;
+    line-height: 1.6;
+  }
+
+  /* Sentence display */
+  .sentence-display {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #1a202c;
+    padding: 20px 0;
+  }
+  @media (max-width: 480px) {
+    .sentence-display { font-size: 1.15rem; }
+  }
+
+  /* Legend swatch */
+  .legend-swatch {
+    display: inline-block;
+    width: 14px; height: 14px;
+    border-radius: 3px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+// =====================================================================
+// ===== EXPERIMENT A ITEMS - EDIT HERE =====
+// Format: { id, sentence, context (optional string), phenomenon, condition, expected }
+// "context" is shown in a gray box above the sentence. Leave "" for no context.
+// "expected" is for researcher notes only (not shown to participants).
+// =====================================================================
+const EXPERIMENT_A_ITEMS = [
+  {
+    id: "cd_01",
+    sentence: "Τον είδα τον Γιάννη χθες στο πανεπιστήμιο.",
+    context: "",
+    phenomenon: "cd",
+    condition: "definite_proper",
+    expected: "high"
+  },
+  {
+    id: "cd_02",
+    sentence: "Την συνάντησα τη Μαρία μετά το μάθημα.",
+    context: "",
+    phenomenon: "cd",
+    condition: "definite_proper",
+    expected: "high"
+  },
+  {
+    id: "clld_01",
+    sentence: "Την Μαρία την συνάντησα σήμερα στη βιβλιοθήκη.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite",
+    expected: "high"
+  },
+  {
+    id: "clld_02",
+    sentence: "Η Μαρία την αγαπάς ακόμη;",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite",
+    expected: "low"
+  },
+  {
+    id: "pc_01",
+    sentence: "Ο Γιάννης και η Μαρία έφυγαν από το πάρτι μετά τα μεσάνυχτα.",
+    context: "",
+    phenomenon: "plural_conjunction",
+    condition: "kai_plural_preverbal",
+    expected: "high"
+  },
+  {
+    id: "pc_02",
+    sentence: "Η Μαρία κι ο φίλος της δεν βλέπει εξέλιξη στη σχέση τους.",
+    context: "",
+    phenomenon: "plural_conjunction",
+    condition: "kai_singular_preverbal",
+    expected: "low"
+  }
+];
+
+// =====================================================================
+// ===== EXPERIMENT A PRACTICE ITEMS - EDIT HERE =====
+// These are shown before the main items, with feedback.
+// Add a "feedback" field with text shown after the participant responds.
+// =====================================================================
+const EXPERIMENT_A_PRACTICE = [
+  {
+    id: "practice_a_01",
+    sentence: "Χθες πήγα στην αγορά και αγόρασα φρούτα.",
+    context: "",
+    phenomenon: "practice",
+    condition: "grammatical",
+    expected: "high",
+    feedback: "Αυτή η πρόταση είναι φυσιολογική — οι περισσότεροι ομιλητές θα τη βαθμολογούσαν ψηλά (6–7)."
+  },
+  {
+    id: "practice_a_02",
+    sentence: "Αγόρασα φρούτα στην αγορά χθες πήγα.",
+    context: "",
+    phenomenon: "practice",
+    condition: "ungrammatical",
+    expected: "low",
+    feedback: "Αυτή η πρόταση ακούγεται αφύσικη — οι περισσότεροι ομιλητές θα τη βαθμολογούσαν χαμηλά (1–2)."
+  },
+  {
+    id: "practice_a_03",
+    sentence: "Σήμερα ήρθε ο Γιάννης στο γραφείο πολύ αργά.",
+    context: "Ο Γιάννης δουλεύει σε ένα γραφείο στο κέντρο.",
+    phenomenon: "practice",
+    condition: "with_context",
+    expected: "high",
+    feedback: "Εδώ βλέπετε πώς εμφανίζεται ένα πλαίσιο (context) πριν την πρόταση. Βαθμολογείτε μόνο την πρόταση, όχι το πλαίσιο."
+  }
+];
+
+// =====================================================================
+// ===== EXPERIMENT B ITEMS - EDIT HERE =====
+// Format: { id, sentence (with <span class='idx-a/b/c'>...</span> for colored coreference),
+//           phenomenon, condition, expected }
+// idx-a = red, idx-b = blue, idx-c = green
+// Same color = intended coreference (referring to the same person/thing)
+// =====================================================================
+const EXPERIMENT_B_ITEMS = [
+  {
+    id: "bind_01",
+    sentence: "Ο <span class='idx-a'>μπαμπάς της</span> νόμιζε ότι είδε <span class='idx-a'>τον εαυτό του</span> στον καθρέφτη.",
+    phenomenon: "binding",
+    condition: "principle_a",
+    expected: "high"
+  },
+  {
+    id: "bind_02",
+    sentence: "Ο <span class='idx-a'>Γιάννης</span> είπε ότι η Μαρία θαυμάζει <span class='idx-a'>τον εαυτό του</span>.",
+    phenomenon: "binding",
+    condition: "principle_a_violation",
+    expected: "low"
+  },
+  {
+    id: "bind_03",
+    sentence: "Ο <span class='idx-a'>Γιάννης</span> είπε ότι η Μαρία <span class='idx-a'>τον</span> αγαπάει.",
+    phenomenon: "binding",
+    condition: "principle_b",
+    expected: "high"
+  },
+  {
+    id: "sco_01",
+    sentence: "<span class='idx-a'>Ποια ηθοποιό</span> <span class='idx-a'>την</span> λατρεύει ο σύντροφος <span class='idx-a'>της</span>;",
+    phenomenon: "crossover",
+    condition: "sco_wh",
+    expected: "mid"
+  },
+  {
+    id: "wco_01",
+    sentence: "Κανέναν <span class='idx-a'>φοιτητή</span> δεν εκτιμά ο καθηγητής <span class='idx-a'>του</span>.",
+    phenomenon: "crossover",
+    condition: "wco_kanenan",
+    expected: "mid"
+  }
+];
+
+// =====================================================================
+// ===== EXPERIMENT B PRACTICE ITEMS - EDIT HERE =====
+// =====================================================================
+const EXPERIMENT_B_PRACTICE = [
+  {
+    id: "practice_b_01",
+    sentence: "Ο <span class='idx-a'>Γιάννης</span> είδε <span class='idx-a'>τον εαυτό του</span> στον καθρέφτη.",
+    phenomenon: "practice",
+    condition: "simple_reflexive",
+    expected: "high",
+    feedback: "Εδώ οι κόκκινες λέξεις αναφέρονται στο ίδιο πρόσωπο (ο Γιάννης). Αυτή η ερμηνεία είναι φυσική (6–7)."
+  },
+  {
+    id: "practice_b_02",
+    sentence: "Ο <span class='idx-a'>Γιάννης</span> είπε ότι η <span class='idx-b'>Μαρία</span> <span class='idx-b'>την</span> αγαπάει.",
+    phenomenon: "practice",
+    condition: "two_indices",
+    expected: "low",
+    feedback: "Εδώ οι μπλε λέξεις (Μαρία, την) αναφέρονται στο ίδιο πρόσωπο — η Μαρία αγαπάει τον εαυτό της. Σκεφτείτε αν αυτή η ερμηνεία σας φαίνεται αποδεκτή."
+  }
+];
+
+
+// =====================================================================
+// ===== APPLICATION CODE BELOW =====
+// ===== (Students generally don't need to edit below this line) =====
+// =====================================================================
+
+const { useState, useEffect, useCallback, useRef, useMemo } = React;
+
+// ----- Utility: seeded Fisher-Yates shuffle -----
+function mulberry32(seed) {
+  return function() {
+    let t = seed += 0x6D2B79F5;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function hashString(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const ch = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + ch;
+    hash |= 0;
+  }
+  return Math.abs(hash);
+}
+
+function shuffleArray(arr, seed) {
+  const shuffled = [...arr];
+  const rng = mulberry32(seed);
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+// ----- Utility: generate participant ID -----
+function generateParticipantId() {
+  const now = Date.now();
+  const rand = Math.random().toString(36).substring(2, 8);
+  return `P_${now}_${rand}`;
+}
+
+// ----- Utility: convert results to CSV -----
+function resultsToCSV(results, demographics, experiment) {
+  const headers = [
+    'participant_id', 'experiment', 'age', 'gender', 'education',
+    'native_speaker', 'region', 'item_id', 'phenomenon', 'condition',
+    'rating', 'rt_ms', 'item_order', 'timestamp'
+  ];
+  const rows = [headers.join(',')];
+  results.forEach((r, idx) => {
+    const row = [
+      demographics.participantId,
+      experiment,
+      demographics.age,
+      `"${demographics.gender}"`,
+      `"${demographics.education}"`,
+      demographics.nativeSpeaker,
+      `"${demographics.region}"`,
+      r.itemId,
+      r.phenomenon,
+      r.condition,
+      r.rating,
+      r.rt,
+      idx + 1,
+      r.timestamp
+    ];
+    rows.push(row.join(','));
+  });
+  return rows.join('\n');
+}
+
+function downloadCSV(csvString, filename) {
+  const blob = new Blob(['﻿' + csvString], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+
+// ========================
+// COMPONENTS
+// ========================
+
+// ----- Progress Bar -----
+function ProgressBar({ current, total, label }) {
+  const pct = total > 0 ? (current / total) * 100 : 0;
+  return (
+    <div className="w-full mb-6">
+      <div className="flex justify-between text-sm text-gray-500 mb-1">
+        <span>{label}</span>
+        <span>{current} / {total}</span>
+      </div>
+      <div className="w-full bg-gray-200 rounded-full h-2.5">
+        <div className="bg-blue-500 h-2.5 rounded-full progress-fill" style={{ width: `${pct}%` }}></div>
+      </div>
+    </div>
+  );
+}
+
+// ----- Rating Scale -----
+function RatingScale({ value, onChange, lowLabel, highLabel }) {
+  const [flashIdx, setFlashIdx] = useState(null);
+
+  const handleClick = (n) => {
+    setFlashIdx(n);
+    onChange(n);
+    setTimeout(() => setFlashIdx(null), 300);
+  };
+
+  return (
+    <div className="mt-6">
+      <div className="flex justify-center items-end gap-2 sm:gap-3">
+        {[1,2,3,4,5,6,7].map(n => (
+          <button
+            key={n}
+            className={`rating-btn ${value === n ? 'selected' : ''} ${flashIdx === n ? 'flash' : ''}`}
+            onClick={() => handleClick(n)}
+            aria-label={`Rating ${n}`}
+          >
+            {n}
+          </button>
+        ))}
+      </div>
+      <div className="flex justify-between text-xs text-gray-500 mt-2 px-1">
+        <span>{lowLabel}</span>
+        <span>{highLabel}</span>
+      </div>
+    </div>
+  );
+}
+
+// ----- Sentence Display (handles HTML for colored spans) -----
+function SentenceDisplay({ sentence, context, isExpB }) {
+  return (
+    <div className="fade-in">
+      {context && context.trim() !== '' && (
+        <div className="context-box" style={{ fontStyle: 'italic' }}>
+          {context}
+        </div>
+      )}
+      <div
+        className="sentence-display text-center"
+        dangerouslySetInnerHTML={{ __html: sentence }}
+      />
+      {isExpB && (
+        <div className="text-xs text-gray-400 text-center mt-2">
+          <span className="legend-swatch" style={{background:'#E15759'}}></span> ίδιο πρόσωπο
+          {/* Only show extra colors if present in sentence */}
+          {sentence.includes('idx-b') && (
+            <span className="ml-3">
+              <span className="legend-swatch" style={{background:'#4E79A7'}}></span> ίδιο πρόσωπο
+            </span>
+          )}
+          {sentence.includes('idx-c') && (
+            <span className="ml-3">
+              <span className="legend-swatch" style={{background:'#59A14F'}}></span> ίδιο πρόσωπο
+            </span>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ----- Landing Page (Experiment Selection) -----
+function LandingPage({ onSelect }) {
+  return (
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="max-w-lg w-full text-center">
+        <h1 className="text-3xl font-bold text-gray-800 mb-2">Γλωσσολογικά Πειράματα</h1>
+        <p className="text-gray-500 mb-1 text-sm">Πανεπιστήμιο Κρήτης — Τμήμα Φιλολογίας</p>
+        <p className="text-gray-400 mb-8 text-xs">Linguistics Experiments Platform</p>
+
+        <div className="space-y-4">
+          <button
+            onClick={() => onSelect('A')}
+            className="w-full bg-white border-2 border-gray-200 rounded-xl p-6 text-left hover:border-blue-400 hover:shadow-md transition-all"
+          >
+            <div className="font-semibold text-lg text-gray-800 mb-1">Πείραμα Α</div>
+            <div className="text-sm text-gray-500">Αξιολόγηση Φυσικότητας Προτάσεων</div>
+            <div className="text-xs text-gray-400 mt-1">CD/CLLD + Plural Conjunction — Acceptability Judgments</div>
+          </button>
+
+          <button
+            onClick={() => onSelect('B')}
+            className="w-full bg-white border-2 border-gray-200 rounded-xl p-6 text-left hover:border-blue-400 hover:shadow-md transition-all"
+          >
+            <div className="font-semibold text-lg text-gray-800 mb-1">Πείραμα Β</div>
+            <div className="text-sm text-gray-500">Αξιολόγηση Συναναφοράς</div>
+            <div className="text-xs text-gray-400 mt-1">Binding/Crossover — Coreference Judgments</div>
+          </button>
+        </div>
+
+        <p className="text-gray-300 text-xs mt-8">v2.0 — LinguaOYXOY</p>
+      </div>
+    </div>
+  );
+}
+
+// ----- Demographics Form -----
+function DemographicsForm({ onSubmit }) {
+  const [age, setAge] = useState('');
+  const [gender, setGender] = useState('');
+  const [education, setEducation] = useState('');
+  const [nativeSpeaker, setNativeSpeaker] = useState('');
+  const [region, setRegion] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!age || !gender || !education || !nativeSpeaker) {
+      setError('Παρακαλώ συμπληρώστε όλα τα υποχρεωτικά πεδία.');
+      return;
+    }
+    if (isNaN(parseInt(age)) || parseInt(age) < 15 || parseInt(age) > 100) {
+      setError('Παρακαλώ εισάγετε έγκυρη ηλικία (15–100).');
+      return;
+    }
+    const participantId = generateParticipantId();
+    onSubmit({ participantId, age: parseInt(age), gender, education, nativeSpeaker, region });
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-sm p-8">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Δημογραφικά Στοιχεία</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Ηλικία *</label>
+            <input type="number" value={age} onChange={e => setAge(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-400 outline-none"
+              placeholder="π.χ. 22" min="15" max="100" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Φύλο *</label>
+            <select value={gender} onChange={e => setGender(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-400 outline-none bg-white">
+              <option value="">— Επιλέξτε —</option>
+              <option value="male">Άνδρας</option>
+              <option value="female">Γυναίκα</option>
+              <option value="other">Άλλο</option>
+              <option value="prefer_not">Προτιμώ να μην απαντήσω</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Επίπεδο Εκπαίδευσης *</label>
+            <select value={education} onChange={e => setEducation(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-400 outline-none bg-white">
+              <option value="">— Επιλέξτε —</option>
+              <option value="high_school">Λύκειο</option>
+              <option value="undergraduate">Προπτυχιακό</option>
+              <option value="graduate">Μεταπτυχιακό</option>
+              <option value="phd">Διδακτορικό</option>
+              <option value="other">Άλλο</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Φυσικός ομιλητής Ελληνικών; *</label>
+            <select value={nativeSpeaker} onChange={e => setNativeSpeaker(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-400 outline-none bg-white">
+              <option value="">— Επιλέξτε —</option>
+              <option value="yes">Ναι</option>
+              <option value="no">Όχι</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Περιοχή / Διάλεκτος</label>
+            <input type="text" value={region} onChange={e => setRegion(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-400 outline-none"
+              placeholder="π.χ. Κρήτη, Αθήνα, Θεσσαλονίκη..." />
+          </div>
+
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+
+          <button type="submit"
+            className="w-full bg-blue-600 text-white rounded-lg py-3 font-semibold hover:bg-blue-700 transition mt-2">
+            Συνέχεια
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+// ----- Instructions Screen -----
+function InstructionsScreen({ experiment, onContinue }) {
+  const isA = experiment === 'A';
+  const title = isA ? 'Αξιολόγηση Φυσικότητας Προτάσεων' : 'Αξιολόγηση Συναναφοράς';
+  const text = isA
+    ? 'Θα δείτε μια σειρά από προτάσεις στα ελληνικά. Βαθμολογήστε πόσο φυσική σας ακούγεται η κάθε πρόταση σε μια κλίμακα 1–7, όπου 1 = εντελώς αφύσικη και 7 = απόλυτα φυσική. Δεν υπάρχουν σωστές ή λάθος απαντήσεις — μας ενδιαφέρει η δική σας αίσθηση ως φυσικοί ομιλητές.'
+    : 'Θα δείτε προτάσεις στα ελληνικά όπου κάποιες λέξεις εμφανίζονται με το ίδιο χρώμα. Οι λέξεις με το ίδιο χρώμα υποδεικνύουν ότι αναφέρονται στο ίδιο πρόσωπο ή πράγμα. Βαθμολογήστε πόσο αποδεκτή σας φαίνεται αυτή η ερμηνεία σε μια κλίμακα 1–7, όπου 1 = αδύνατη ερμηνεία και 7 = απόλυτα φυσική ερμηνεία.';
+
+  return (
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="max-w-lg w-full bg-white rounded-2xl shadow-sm p-8">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">{title}</h2>
+        <p className="text-gray-600 leading-relaxed mb-6">{text}</p>
+
+        {!isA && (
+          <div className="bg-gray-50 rounded-lg p-4 mb-6">
+            <p className="text-sm text-gray-600 mb-2 font-medium">Παράδειγμα χρωμάτων:</p>
+            <p className="text-base">
+              Ο <span className="idx-a">Γιάννης</span> είδε <span className="idx-a">τον εαυτό του</span> στον καθρέφτη.
+            </p>
+            <p className="text-xs text-gray-400 mt-2">
+              <span className="legend-swatch" style={{background:'#E15759'}}></span> Κόκκινο = ίδιο πρόσωπο&ensp;
+              <span className="legend-swatch" style={{background:'#4E79A7'}}></span> Μπλε = ίδιο πρόσωπο&ensp;
+              <span className="legend-swatch" style={{background:'#59A14F'}}></span> Πράσινο = ίδιο πρόσωπο
+            </p>
+          </div>
+        )}
+
+        <div className="bg-blue-50 rounded-lg p-4 mb-6 text-sm text-blue-800">
+          <strong>Σημαντικό:</strong> Θα ξεκινήσετε με μερικές προτάσεις εξάσκησης. Μετά θα ακολουθήσουν οι κύριες προτάσεις του πειράματος. Δεν μπορείτε να επιστρέψετε σε προηγούμενη πρόταση.
+        </div>
+
+        <button onClick={onContinue}
+          className="w-full bg-blue-600 text-white rounded-lg py-3 font-semibold hover:bg-blue-700 transition">
+          Ξεκινήστε την εξάσκηση
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ----- Practice Item Screen -----
+function PracticeScreen({ items, experiment, onComplete }) {
+  const [current, setCurrent] = useState(0);
+  const [rating, setRating] = useState(null);
+  const [showFeedback, setShowFeedback] = useState(false);
+
+  const item = items[current];
+  const isExpB = experiment === 'B';
+  const lowLabel = isExpB ? '1 = αδύνατη' : '1 = αφύσικη';
+  const highLabel = isExpB ? '7 = αποδεκτή' : '7 = φυσική';
+
+  const handleRate = (val) => {
+    setRating(val);
+    setShowFeedback(true);
+  };
+
+  const handleNext = () => {
+    if (current + 1 >= items.length) {
+      onComplete();
+    } else {
+      setCurrent(c => c + 1);
+      setRating(null);
+      setShowFeedback(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="max-w-lg w-full bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+        <ProgressBar current={current + 1} total={items.length} label="Εξάσκηση" />
+
+        <div className="mb-2 text-xs text-gray-400 uppercase tracking-wide text-center">Εξάσκηση</div>
+
+        <SentenceDisplay sentence={item.sentence} context={item.context} isExpB={isExpB} />
+
+        <RatingScale value={rating} onChange={handleRate} lowLabel={lowLabel} highLabel={highLabel} />
+
+        {showFeedback && (
+          <div className="mt-6 fade-in">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-sm text-yellow-800">
+              {item.feedback}
+            </div>
+            <button onClick={handleNext}
+              className="w-full bg-blue-600 text-white rounded-lg py-3 font-semibold hover:bg-blue-700 transition mt-4">
+              {current + 1 >= items.length ? 'Ξεκινήστε το πείραμα' : 'Επόμενη πρόταση'}
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ----- Main Trial Screen -----
+function TrialScreen({ items, experiment, demographics, onComplete }) {
+  const [current, setCurrent] = useState(0);
+  const [results, setResults] = useState([]);
+  const [rating, setRating] = useState(null);
+  const [itemStartTime, setItemStartTime] = useState(Date.now());
+  const [transitioning, setTransitioning] = useState(false);
+
+  const item = items[current];
+  const isExpB = experiment === 'B';
+  const lowLabel = isExpB ? '1 = αδύνατη' : '1 = αφύσικη';
+  const highLabel = isExpB ? '7 = αποδεκτή' : '7 = φυσική';
+
+  // Reset start time when item changes
+  useEffect(() => {
+    setItemStartTime(Date.now());
+  }, [current]);
+
+  const handleRate = (val) => {
+    if (transitioning) return;
+    const rt = Date.now() - itemStartTime;
+    const result = {
+      itemId: item.id,
+      phenomenon: item.phenomenon,
+      condition: item.condition,
+      rating: val,
+      rt: rt,
+      timestamp: new Date().toISOString()
+    };
+
+    const newResults = [...results, result];
+    setRating(val);
+    setTransitioning(true);
+
+    // Brief pause so participant sees selection, then advance
+    setTimeout(() => {
+      if (current + 1 >= items.length) {
+        onComplete(newResults);
+      } else {
+        setResults(newResults);
+        setCurrent(c => c + 1);
+        setRating(null);
+        setTransitioning(false);
+      }
+    }, 400);
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="max-w-lg w-full bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+        <ProgressBar current={current + 1} total={items.length} label={`Πείραμα ${experiment}`} />
+
+        <div key={current} className="fade-in">
+          <SentenceDisplay sentence={item.sentence} context={item.context} isExpB={isExpB} />
+        </div>
+
+        <div className="mt-2 text-center text-sm text-gray-500">
+          {isExpB
+            ? 'Πόσο αποδεκτή σας φαίνεται αυτή η ερμηνεία;'
+            : 'Πόσο φυσική σας ακούγεται η πρόταση;'}
+        </div>
+
+        <RatingScale value={rating} onChange={handleRate} lowLabel={lowLabel} highLabel={highLabel} />
+      </div>
+    </div>
+  );
+}
+
+// ----- End Screen -----
+function EndScreen({ results, demographics, experiment }) {
+  const [showJSON, setShowJSON] = useState(false);
+  const csvData = useMemo(() => resultsToCSV(results, demographics, experiment), [results, demographics, experiment]);
+  const jsonData = useMemo(() => JSON.stringify({ demographics, experiment, results }, null, 2), [results, demographics, experiment]);
+
+  // Save to localStorage
+  useEffect(() => {
+    const key = `linguaOYXOY_${experiment}_${demographics.participantId}`;
+    try {
+      localStorage.setItem(key, jsonData);
+    } catch (e) {
+      console.warn('Could not save to localStorage:', e);
+    }
+  }, [jsonData, experiment, demographics.participantId]);
+
+  const handleDownloadCSV = () => {
+    const filename = `experiment_${experiment}_${demographics.participantId}.csv`;
+    downloadCSV(csvData, filename);
+  };
+
+  const handleCopyJSON = () => {
+    navigator.clipboard.writeText(jsonData).then(() => {
+      alert('Τα δεδομένα αντιγράφηκαν!');
+    }).catch(() => {
+      // fallback: select the textarea
+      const ta = document.getElementById('json-output');
+      if (ta) { ta.select(); document.execCommand('copy'); }
+    });
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="max-w-lg w-full bg-white rounded-2xl shadow-sm p-6 sm:p-8 text-center">
+        <div className="text-5xl mb-4">✓</div>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">Ευχαριστούμε!</h2>
+        <p className="text-gray-500 mb-6">Οι απαντήσεις σας καταγράφηκαν επιτυχώς.</p>
+        <p className="text-sm text-gray-400 mb-6">ID συμμετέχοντα: <code className="bg-gray-100 px-2 py-1 rounded text-xs">{demographics.participantId}</code></p>
+
+        <div className="space-y-3">
+          <button onClick={handleDownloadCSV}
+            className="w-full bg-green-600 text-white rounded-lg py-3 font-semibold hover:bg-green-700 transition">
+            Λήψη CSV
+          </button>
+
+          <button onClick={() => setShowJSON(!showJSON)}
+            className="w-full bg-gray-100 text-gray-700 rounded-lg py-3 font-semibold hover:bg-gray-200 transition">
+            {showJSON ? 'Απόκρυψη JSON' : 'Εμφάνιση JSON'}
+          </button>
+
+          {showJSON && (
+            <div className="fade-in text-left">
+              <textarea id="json-output" readOnly value={jsonData}
+                className="w-full h-48 text-xs font-mono bg-gray-50 border border-gray-200 rounded-lg p-3 mt-2 resize-none"
+              />
+              <button onClick={handleCopyJSON}
+                className="w-full bg-blue-100 text-blue-700 rounded-lg py-2 font-semibold hover:bg-blue-200 transition mt-2 text-sm">
+                Αντιγραφή JSON
+              </button>
+            </div>
+          )}
+        </div>
+
+        <button onClick={() => window.location.reload()}
+          className="mt-8 text-sm text-gray-400 hover:text-gray-600 underline">
+          Νέα συμμετοχή
+        </button>
+      </div>
+    </div>
+  );
+}
+
+
+// ========================
+// MAIN APP
+// ========================
+function App() {
+  // Phases: 'landing', 'demographics', 'instructions', 'practice', 'trial', 'end'
+  const [phase, setPhase] = useState('landing');
+  const [experiment, setExperiment] = useState(null); // 'A' or 'B'
+  const [demographics, setDemographics] = useState(null);
+  const [results, setResults] = useState(null);
+
+  // Shuffled items (computed once demographics are set)
+  const shuffledItems = useMemo(() => {
+    if (!demographics || !experiment) return [];
+    const items = experiment === 'A' ? EXPERIMENT_A_ITEMS : EXPERIMENT_B_ITEMS;
+    const seed = hashString(demographics.participantId);
+    return shuffleArray(items, seed);
+  }, [demographics, experiment]);
+
+  const practiceItems = experiment === 'A' ? EXPERIMENT_A_PRACTICE : EXPERIMENT_B_PRACTICE;
+
+  const handleSelectExperiment = (exp) => {
+    setExperiment(exp);
+    setPhase('demographics');
+  };
+
+  const handleDemographics = (demo) => {
+    setDemographics(demo);
+    setPhase('instructions');
+  };
+
+  const handleInstructionsDone = () => {
+    setPhase('practice');
+  };
+
+  const handlePracticeDone = () => {
+    setPhase('trial');
+  };
+
+  const handleTrialComplete = (res) => {
+    setResults(res);
+    setPhase('end');
+  };
+
+  // Disable browser back button during trial
+  useEffect(() => {
+    if (phase === 'trial' || phase === 'practice') {
+      const handler = (e) => {
+        e.preventDefault();
+        window.history.pushState(null, '', window.location.href);
+      };
+      window.history.pushState(null, '', window.location.href);
+      window.addEventListener('popstate', handler);
+      return () => window.removeEventListener('popstate', handler);
+    }
+  }, [phase]);
+
+  switch (phase) {
+    case 'landing':
+      return <LandingPage onSelect={handleSelectExperiment} />;
+    case 'demographics':
+      return <DemographicsForm onSubmit={handleDemographics} />;
+    case 'instructions':
+      return <InstructionsScreen experiment={experiment} onContinue={handleInstructionsDone} />;
+    case 'practice':
+      return <PracticeScreen items={practiceItems} experiment={experiment} onComplete={handlePracticeDone} />;
+    case 'trial':
+      return <TrialScreen items={shuffledItems} experiment={experiment} demographics={demographics} onComplete={handleTrialComplete} />;
+    case 'end':
+      return <EndScreen results={results} demographics={demographics} experiment={experiment} />;
+    default:
+      return <LandingPage onSelect={handleSelectExperiment} />;
+  }
+}
+
+// Mount
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
