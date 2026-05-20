@@ -805,8 +805,13 @@ function EndScreen({ results, demographics, experiment }) {
 // ========================
 function App() {
   // Phases: 'landing', 'demographics', 'instructions', 'practice', 'trial', 'end'
-  const [phase, setPhase] = useState('landing');
-  const [experiment, setExperiment] = useState(null); // 'A' or 'B'
+  // Check URL parameters: ?exp=a → Experiment A, ?exp=b → Experiment B
+  const urlParams = new URLSearchParams(window.location.search);
+  const expParam = urlParams.get('exp');
+  const initialExp = expParam === 'a' ? 'A' : expParam === 'b' ? 'B' : null;
+
+  const [phase, setPhase] = useState(initialExp ? 'demographics' : 'landing');
+  const [experiment, setExperiment] = useState(initialExp); // 'A' or 'B'
   const [demographics, setDemographics] = useState(null);
   const [results, setResults] = useState(null);
 
