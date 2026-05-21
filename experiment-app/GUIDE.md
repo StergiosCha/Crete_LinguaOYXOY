@@ -6,37 +6,43 @@ Single-file React app (`index.html`) for two Greek linguistics experiments. No b
 
 ## 1. Quick Start
 
-Open `index.html` in any modern browser. That's it.
+Open `index.html` in any browser to test locally.
 
-To share with participants, deploy to GitHub Pages (see Section 7).
+Live URLs for participants:
+- **Experiment A**: `https://stergioscha.github.io/Crete_LinguaOYXOY/?exp=a`
+- **Experiment B**: `https://stergioscha.github.io/Crete_LinguaOYXOY/?exp=b`
 
 ---
 
 ## 2. File Structure
 
-Everything lives in one HTML file:
+Everything lives in one HTML file. The top of the file has four arrays you need to edit:
 
-- **Top of file**: JSON arrays of experimental items, marked with comments like `// ITEMS_A` and `// ITEMS_B`
-- **Middle**: React components (trial screen, demographics, instructions, results)
-- **Bottom**: CSS styles
-- React and ReactDOM load from CDN -- no npm, no webpack, no build step
+| Array | What it is |
+|-------|------------|
+| `EXPERIMENT_A_ITEMS` | Main items for Experiment A |
+| `EXPERIMENT_A_PRACTICE` | Practice items for Experiment A (shown with feedback) |
+| `EXPERIMENT_B_ITEMS` | Main items for Experiment B |
+| `EXPERIMENT_B_PRACTICE` | Practice items for Experiment B (shown with feedback) |
+
+Everything below the line `// ===== APPLICATION CODE BELOW =====` should not be edited.
 
 ---
 
 ## 3. How to Add/Edit Items
 
-### Experiment A (Acceptability Judgments)
+### Experiment A (Acceptability Judgments — CD/CLLD/Plural Conjunction)
 
-Each item is a JSON object in the `ITEMS_A` array:
+Add items to the `EXPERIMENT_A_ITEMS` array. Each item looks like this:
 
-```json
+```javascript
 {
-  "id": "cd_01",
-  "sentence": "Greek sentence here",
-  "context": "optional discourse context",
-  "phenomenon": "cd|clld|plural_conjunction",
-  "condition": "condition_name",
-  "expected": "high|mid|low"
+  id: "cd_01",
+  sentence: "Τον είδα τον Γιάννη χθες στο πανεπιστήμιο.",
+  context: "",
+  phenomenon: "cd",
+  condition: "definite_proper",
+  expected: "high"
 }
 ```
 
@@ -44,42 +50,48 @@ Each item is a JSON object in the `ITEMS_A` array:
 |-------|-------------|
 | `id` | Unique identifier. Use prefix for phenomenon: `cd_01`, `clld_05`, `pc_03` |
 | `sentence` | The Greek sentence participants will rate |
-| `context` | Discourse context shown above the sentence. Use `""` if none |
-| `phenomenon` | One of: `cd`, `clld`, `plural_conjunction` |
+| `context` | Discourse context shown in a gray box above the sentence. Use `""` for none |
+| `phenomenon` | One of: `cd`, `clld`, `plural_conjunction`, `genitive_clitic`, `filler` |
 | `condition` | The experimental condition (your design) |
-| `expected` | Expected rating direction: `high`, `mid`, or `low`. For analysis only, not shown to participants |
+| `expected` | Expected rating: `high`, `mid`, or `low`. Not shown to participants |
 
-### Experiment B (Coreference Judgments)
+### Experiment B (Coreference Judgments — Binding/Crossover)
 
-Each item is a JSON object in the `ITEMS_B` array:
+Add items to the `EXPERIMENT_B_ITEMS` array. The sentence field uses HTML spans with color classes to mark coreference:
 
-```json
+```javascript
 {
-  "id": "bind_01",
-  "sentence": "HTML with colored spans",
-  "phenomenon": "binding|crossover",
-  "condition": "condition_name",
-  "expected": "high|mid|low"
+  id: "bind_01",
+  sentence: "Ο <span class='idx-a'>Γιάννης</span> είδε <span class='idx-a'>τον εαυτό του</span> στον καθρέφτη.",
+  phenomenon: "binding",
+  condition: "principle_a",
+  expected: "high"
 }
 ```
 
-Same fields as Experiment A, but `sentence` contains HTML with colored spans to mark coreference:
+| CSS Class | Color | Meaning |
+|-----------|-------|---------|
+| `idx-a` | Red | Coreference group 1 |
+| `idx-b` | Blue | Coreference group 2 |
+| `idx-c` | Green | Coreference group 3 |
 
-| CSS Class | Color | Usage |
-|-----------|-------|-------|
-| `idx-a` | Red | Referent group 1 |
-| `idx-b` | Blue | Referent group 2 |
-| `idx-c` | Green | Referent group 3 |
+Words with the **same** color class co-refer (same person/thing). Participants see the colors and rate how acceptable that interpretation is.
 
-Words with the **same** color class are meant to co-refer.
+### Practice Items
 
-Example:
+Practice items have an extra `feedback` field shown after the participant responds:
 
-```html
-"Ο <span class='idx-a'>Γιάννης</span> αγαπάει <span class='idx-a'>τον εαυτό του</span>."
+```javascript
+{
+  id: "practice_a_01",
+  sentence: "Χθες πήγα στην αγορά και αγόρασα φρούτα.",
+  context: "",
+  phenomenon: "practice",
+  condition: "grammatical",
+  expected: "high",
+  feedback: "Αυτή η πρόταση είναι φυσιολογική — οι περισσότεροι ομιλητές θα τη βαθμολογούσαν ψηλά (6–7)."
+}
 ```
-
-Result: "Γιάννης" and "τον εαυτό του" both appear in red, signaling coreference.
 
 ---
 
@@ -87,146 +99,66 @@ Result: "Γιάννης" and "τον εαυτό του" both appear in red, sign
 
 Add items with `"phenomenon": "filler"` to either items array:
 
-```json
-{"id": "filler_01", "sentence": "Clearly grammatical sentence", "context": "", "phenomenon": "filler", "condition": "grammatical", "expected": "high"}
-{"id": "filler_02", "sentence": "Clearly ungrammatical sentence", "context": "", "phenomenon": "filler", "condition": "ungrammatical", "expected": "low"}
-```
-
-Guidelines:
-- Mix clearly good and clearly bad sentences
-- Use them to catch inattentive participants (anyone rating fillers wrong is suspect)
-- Aim for roughly 20-30% fillers in your item list
-
----
-
-## 5. How to Modify the Interface
-
-Search for these markers in the HTML file:
-
-| What to change | Search for |
-|----------------|------------|
-| Instructions text | `INSTRUCTIONS_A`, `INSTRUCTIONS_B` |
-| Demographics questions | `DEMOGRAPHICS` |
-| Practice items | `PRACTICE_ITEMS` |
-| Coreference colors | `idx-a`, `idx-b`, `idx-c` (in CSS) |
-| Scale labels | `SCALE_LABELS` |
-| Number of scale points | `SCALE_MAX` |
-
----
-
-## 6. Data Collection
-
-### Default: Browser Download
-
-Results are saved in the browser during the experiment. At the end, participants download a CSV.
-
-CSV columns: `participant_id, experiment, item_id, phenomenon, condition, expected, response, response_time_ms`
-
-### Google Sheets Integration
-
-1. Go to [Google Apps Script](https://script.google.com) and create a new project
-2. Paste this script:
-
 ```javascript
-function doPost(e) {
-  var sheet = SpreadsheetApp.openById('YOUR_SHEET_ID').getActiveSheet();
-  var data = JSON.parse(e.postData.contents);
-  data.forEach(function(row) {
-    sheet.appendRow(Object.values(row));
-  });
-  return ContentService.createTextOutput('OK');
-}
+{id: "filler_01", sentence: "Clearly grammatical sentence", context: "", phenomenon: "filler", condition: "grammatical", expected: "high"},
+{id: "filler_02", sentence: "Clearly ungrammatical sentence", context: "", phenomenon: "filler", condition: "ungrammatical", expected: "low"}
 ```
 
-3. Deploy as Web App (Execute as: Me, Access: Anyone)
-4. Copy the web app URL
-5. In `index.html`, find `BACKEND_URL` and paste the URL there
-
-### Firebase Realtime Database
-
-1. Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com)
-2. Create a Realtime Database (start in test mode for development)
-3. In `index.html`, find `BACKEND_URL` and set it to: `https://YOUR-PROJECT.firebaseio.com/results.json`
-4. The app will POST results as JSON to this endpoint
-5. Before going live, set proper security rules to allow writes only
+Aim for roughly 20-30% fillers. Use them to catch inattentive participants.
 
 ---
 
-## 7. Deployment to GitHub Pages
+## 5. Data Collection
 
-### Step by step
+Results are **automatically sent to Google Sheets** when a participant finishes. No downloads, no manual steps.
 
-1. Create a GitHub repository (or use an existing one)
-
-2. Create a `/docs` folder in your repo and put `index.html` inside it:
-   ```
-   your-repo/
-     docs/
-       index.html
-   ```
-
-3. Push to GitHub:
-   ```bash
-   git add docs/index.html
-   git commit -m "Add experiment app"
-   git push origin main
-   ```
-
-4. Go to your repo on GitHub: **Settings** > **Pages**
-
-5. Under **Source**, select:
-   - Branch: `main`
-   - Folder: `/docs`
-   - Click **Save**
-
-6. Wait 1-2 minutes. Your experiment will be live at:
-   ```
-   https://USERNAME.github.io/REPO-NAME/
-   ```
-
-7. Share this URL with participants.
+The Google Sheet receives one row per item with columns: timestamp, participant_id, experiment, age, gender, education, native_speaker, region, item_id, phenomenon, condition, rating, rt_ms, item_order.
 
 ---
 
-## 8. Common Tasks
+## 6. Deployment
 
-### Change the rating scale from 1-7 to 1-10
+After editing items, push changes and redeploy:
 
-Search for `SCALE_MAX` in the file, change `7` to `10`. Update `SCALE_LABELS` if you have endpoint labels.
+```bash
+rm -f .git/HEAD.lock
+git add experiment-app/index.html
+git commit -m "Update stimuli"
+git push origin main
+git push origin `git subtree split --prefix experiment-app main`:gh-pages --force
+```
 
-### Add a new condition to Experiment A
+Wait 1-2 minutes for GitHub Pages to update.
+
+---
+
+## 7. Common Tasks
+
+### Change the rating scale from 1-7 to 1-5
+
+Search for the `RatingScale` component and change `[1,2,3,4,5,6,7]` to your range.
+
+### Add a new condition
 
 Just add new items with your new condition name in the `condition` field. No other changes needed.
 
-### Change the colors in Experiment B
+### Change coreference colors
 
-Find the CSS section and search for `idx-a`, `idx-b`, `idx-c`. Change the `color` values:
-
-```css
-.idx-a { color: #d32f2f; }  /* red -> change to whatever */
-.idx-b { color: #1976d2; }  /* blue */
-.idx-c { color: #388e3c; }  /* green */
-```
-
-### Add attention check items
-
-```json
-{"id": "attn_01", "sentence": "Obviously perfect sentence", "context": "", "phenomenon": "attention_check", "condition": "grammatical", "expected": "high"}
-```
-
-Your analysis script can flag participants who rate attention checks incorrectly.
-
-### Change the instructions
-
-Search for `INSTRUCTIONS_A` (Experiment A) or `INSTRUCTIONS_B` (Experiment B) and edit the text.
-
-### Add more than 3 colors for coreference
-
-Add new classes in the CSS section following the existing pattern:
+Find the CSS at the top and edit:
 
 ```css
-.idx-d { color: #f57c00; font-weight: bold; }  /* orange */
-.idx-e { color: #7b1fa2; font-weight: bold; }  /* purple */
+.idx-a { color: #E15759; font-weight: 700; }  /* red */
+.idx-b { color: #4E79A7; font-weight: 700; }  /* blue */
+.idx-c { color: #59A14F; font-weight: 700; }  /* green */
+```
+
+### Add more than 3 colors
+
+Add new classes in the CSS:
+
+```css
+.idx-d { color: #f57c00; font-weight: 700; }  /* orange */
+.idx-e { color: #7b1fa2; font-weight: 700; }  /* purple */
 ```
 
 Then use `<span class='idx-d'>word</span>` in your sentences.
@@ -235,7 +167,7 @@ Then use `<span class='idx-d'>word</span>` in your sentences.
 
 ## Tips
 
-- Always test new items by opening `index.html` locally before deploying
-- Back up your item lists separately (copy the JSON arrays to a `.json` file)
-- Use your browser's developer console (F12) to debug any issues
-- Item presentation order is randomized automatically per participant
+- Always test locally (`open index.html` in browser) before deploying
+- Item order is randomized per participant (seeded by participant ID)
+- Back up your item lists separately
+- Use browser dev console (F12) to debug issues
