@@ -281,7 +281,7 @@ const EXPERIMENT_B_PRACTICE = [
 const { useState, useEffect, useCallback, useRef, useMemo } = React;
 
 // ----- Google Sheets backend URL -----
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxy-QQOb9Jrnq0ipG4JW53NwvLmrtBrtfCx3d34oNOhG57WtRz35mu2pHzAcVP46NQL/exec';
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxYeuNfyHrAN8wPdopCHkVO_2YDCDaUVxcFKaQbPcb-k2eOVH--CdYAAmCbVbhjcu1g/exec';
 
 // ----- Utility: submit results to Google Sheets -----
 async function submitToSheets(results, demographics, experiment) {
@@ -302,12 +302,14 @@ async function submitToSheets(results, demographics, experiment) {
     item_order: idx + 1
   }));
   try {
+    // Use text/plain to avoid CORS preflight (simple request)
     await fetch(SHEETS_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({ rows })
     });
+    // With no-cors, response is opaque but data is sent
     return true;
   } catch (err) {
     console.error('Failed to submit to Sheets:', err);
