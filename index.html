@@ -280,6 +280,41 @@ const EXPERIMENT_B_PRACTICE = [
 
 const { useState, useEffect, useCallback, useRef, useMemo } = React;
 
+// ----- Google Sheets backend URL -----
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxy-QQOb9Jrnq0ipG4JW53NwvLmrtBrtfCx3d34oNOhG57WtRz35mu2pHzAcVP46NQL/exec';
+
+// ----- Utility: submit results to Google Sheets -----
+async function submitToSheets(results, demographics, experiment) {
+  const rows = results.map((r, idx) => ({
+    timestamp: r.timestamp,
+    participant_id: demographics.participantId,
+    experiment: experiment,
+    age: demographics.age,
+    gender: demographics.gender,
+    education: demographics.education,
+    native_speaker: demographics.nativeSpeaker,
+    region: demographics.region,
+    item_id: r.itemId,
+    phenomenon: r.phenomenon,
+    condition: r.condition,
+    rating: r.rating,
+    rt_ms: r.rt,
+    item_order: idx + 1
+  }));
+  try {
+    await fetch(SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ rows })
+    });
+    return true;
+  } catch (err) {
+    console.error('Failed to submit to Sheets:', err);
+    return false;
+  }
+}
+
 // ----- Utility: seeded Fisher-Yates shuffle -----
 function mulberry32(seed) {
   return function() {
@@ -728,10 +763,18 @@ function TrialScreen({ items, experiment, demographics, onComplete }) {
 // ----- End Screen -----
 function EndScreen({ results, demographics, experiment }) {
   const [showJSON, setShowJSON] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('sending'); // 'sending', 'success', 'error'
   const csvData = useMemo(() => resultsToCSV(results, demographics, experiment), [results, demographics, experiment]);
   const jsonData = useMemo(() => JSON.stringify({ demographics, experiment, results }, null, 2), [results, demographics, experiment]);
 
-  // Save to localStorage
+  // Auto-submit to Google Sheets
+  useEffect(() => {
+    submitToSheets(results, demographics, experiment).then(ok => {
+      setSubmitStatus(ok ? 'success' : 'error');
+    });
+  }, [results, demographics, experiment]);
+
+  // Also save to localStorage as backup
   useEffect(() => {
     const key = `linguaOYXOY_${experiment}_${demographics.participantId}`;
     try {
@@ -761,7 +804,18 @@ function EndScreen({ results, demographics, experiment }) {
       <div className="max-w-lg w-full bg-white rounded-2xl shadow-sm p-6 sm:p-8 text-center">
         <div className="text-5xl mb-4">✓</div>
         <h2 className="text-2xl font-bold text-gray-800 mb-2">Ευχαριστούμε!</h2>
-        <p className="text-gray-500 mb-6">Οι απαντήσεις σας καταγράφηκαν επιτυχώς.</p>
+        {submitStatus === 'sending' && (
+          <p className="text-blue-500 mb-6">Αποστολή δεδομένων...</p>
+        )}
+        {submitStatus === 'success' && (
+          <p className="text-green-600 mb-6">Οι απαντήσεις σας καταγράφηκαν επιτυχώς.</p>
+        )}
+        {submitStatus === 'error' && (
+          <div className="mb-6">
+            <p className="text-red-600 mb-2">Η αυτόματη αποστολή απέτυχε.</p>
+            <p className="text-gray-500 text-sm">Παρακαλώ κατεβάστε το CSV και στείλτε το στον υπεύθυνο.</p>
+          </div>
+        )}
         <p className="text-sm text-gray-400 mb-6">ID συμμετέχοντα: <code className="bg-gray-100 px-2 py-1 rounded text-xs">{demographics.participantId}</code></p>
 
         <div className="space-y-3">
