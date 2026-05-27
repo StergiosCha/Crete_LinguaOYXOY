@@ -162,7 +162,7 @@ const EXPERIMENT_A_ITEMS = [
   },
   {
     id: "cd_06",
-    sentence: "Τουσ συνάντησα τους εργαζόμενους της εταιρείας.",
+    sentence: "Τους συνάντησα τους εργαζόμενους της εταιρείας.",
     context: "",
     phenomenon: "cd",
     condition: "definite_full_np",
@@ -258,7 +258,7 @@ const EXPERIMENT_A_ITEMS = [
   },
   {
     id: "cd_18",
-    sentence: "Τους εξήγησα των φοιτητών τις απαιτήσεις του μαθήματος.",
+    sentence: "Της εξήγησα της φοιτήτριας τις απαιτήσεις του μαθήματος.",
     context: "",
     phenomenon: "cd",
     condition: "definite_canon_gen",
@@ -322,7 +322,7 @@ const EXPERIMENT_A_ITEMS = [
   },
   {
     id: "cd_26",
-    sentence: "Τον αναγνώρισα έναν φίλο φοιτητή από το χθεσινό συνέδριο.",
+    sentence: "Τον αναγνώρισα έναν φίλο φοιτητή στο χθεσινό συνέδριο.",
     context: "",
     phenomenon: "cd",
     condition: "indefinite_specific",
@@ -434,19 +434,219 @@ const EXPERIMENT_A_ITEMS = [
   },
   {
     id: "clld_01",
-    sentence: "Την Μαρία την συνάντησα σήμερα στη βιβλιοθήκη.",
+    sentence: "Τον Γιάννη τον είδα χθες στο πανεπιστήμιο.",
     context: "",
     phenomenon: "clld",
-    condition: "definite",
+    condition: "definite_proper",
     expected: "high"
   },
   {
     id: "clld_02",
-    sentence: "Η Μαρία την αγαπάς ακόμη;",
+    sentence: "Τη Μαρία τη συνάντησα σήμερα στη βιβλιοθήκη.",
     context: "",
     phenomenon: "clld",
-    condition: "definite",
+    condition: "definite_proper",
+    expected: "high"
+  },
+  {
+    id: "clld_03",
+    sentence: "Τον Κώστα χθες στη δουλειά τον προσέλαβα.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_proper",
+    expected: "high"
+  },
+  {
+    id: "clld_04",
+    sentence: "Τον καινούριο καθηγητή τον χαιρέτησα στην αίθουσα.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_full_np",
+    expected: "high"
+  },
+  {
+    id: "clld_05",
+    sentence: "Τη φοιτήτρια του μεταπτυχιακού τη βοήθησα.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_full_np",
+    expected: "high"
+  },
+  {
+    id: "clld_06",
+    sentence: "Τους εργαζόμενους της εταιρείας τους συνάντησα.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_full_np",
+    expected: "high"
+  },
+  {
+    id: "clld_07",
+    sentence: "Των αστυνόμων των είπαν να πάνε.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_genitive_ton",
     expected: "low"
+  },
+  {
+    id: "clld_08",
+    sentence: "Των καθηγητών των έγραψαν ότι αναβάλλεται η εξέταση.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_genitive_ton",
+    expected: "low"
+  },
+  {
+    id: "clld_09",
+    sentence: "Των φοιτητών των έδωσαν τα αποτελέσματα.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_genitive_ton",
+    expected: "low"
+  },
+  {
+    id: "clld_10",
+    sentence: "Των φοιτητών τα παράπονά τους άκουσα.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_genitive_tous",
+    expected: "high"
+  },
+  {
+    id: "clld_11",
+    sentence: "Των παιδιών την ώρα τους ρώτησα.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_genitive_tous",
+    expected: "low"
+  },
+  {
+    id: "clld_12",
+    sentence: "Των ανθρώπων τους μίλησαν για το πρόβλημά μας.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_genitive_tous",
+    expected: "high"
+  },
+  {
+    id: "clld_13",
+    sentence: "Στους φοιτητές τους μίλησα για την εργασία.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_doubled_prepp",
+    expected: "high"
+  },
+  {
+    id: "clld_14",
+    sentence: "Στη Μαρία της εξήγησα το πρόβλημα.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_doubled_prepp",
+    expected: "high"
+  },
+  {
+    id: "clld_15",
+    sentence: "Στον Νίκο του έδωσα τα βιβλία.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_doubled_prepp",
+    expected: "high"
+  },
+  {
+    id: "clld_16",
+    sentence: "Του Γιάννη του έδειξα το καινούριο γραφείο.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_canon_gen",
+    expected: "high"
+  },
+  {
+    id: "clld_17",
+    sentence: "Της Μαρίας της ανέφερα τα αποτελέσματα της έρευνας.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_canon_gen",
+    expected: "high"
+  },
+  {
+    id: "clld_18",
+    sentence: "Της φοιτήτριας της εξήγησα τις απαιτήσεις του μαθήματος.",
+    context: "",
+    phenomenon: "clld",
+    condition: "definite_canon_gen",
+    expected: "high"
+  },
+  {
+    id: "clld_19",
+    sentence: "Έναν υπνάκο τον χρειάζομαι.",
+    context: "",
+    phenomenon: "clld",
+    condition: "indefinite_non_specific",
+    expected: "high"
+  },
+  {
+    id: "clld_20",
+    sentence: "Μια βόλτα την πήγαινα.",
+    context: "",
+    phenomenon: "clld",
+    condition: "indefinite_non_specific",
+    expected: "high"
+  },
+  {
+    id: "clld_21",
+    sentence: "Έναν φόβο τον νιώθω τώρα.",
+    context: "",
+    phenomenon: "clld",
+    condition: "indefinite_non_specific",
+    expected: "high"
+  },
+  {
+    id: "clld_22",
+    sentence: "Έναν μονόκερο τον έψαχνα από παιδί.",
+    context: "",
+    phenomenon: "clld",
+    condition: "indefinite_non_specific",
+    expected: "high"
+  },
+  {
+    id: "clld_23",
+    sentence: "Ένα ξωτικό εύχομαι να το δω τα Χριστούγεννα.",
+    context: "",
+    phenomenon: "clld",
+    condition: "indefinite_non_specific",
+    expected: "high"
+  },
+  {
+    id: "clld_24",
+    sentence: "Ο Αριστοτέλης είπε ότι έναν κένταυρο θα τον συναντήσουμε στον δρόμο μας.",
+    context: "",
+    phenomenon: "clld",
+    condition: "indefinite_non_specific",
+    expected: "high"
+  },
+  {
+    id: "clld_25",
+    sentence: "Μια μπλούζα κόκκινη την ψάχνω στην ντουλάπα για το πάρτυ.",
+    context: "",
+    phenomenon: "clld",
+    condition: "indefinite_specific",
+    expected: "high"
+  },
+  {
+    id: "clld_26",
+    sentence: "Έναν φίλο φοιτητή τον αναγνώρισα στο χθεσινό συνέδριο.",
+    context: "",
+    phenomenon: "clld",
+    condition: "indefinite_specific",
+    expected: "high"
+  },
+  {
+    id: "clld_27",
+    sentence: "Μια θήκη δερμάτινη για το κινητό την έχασα.",
+    context: "",
+    phenomenon: "clld",
+    condition: "indefinite_specific",
+    expected: "high"
   },
   {
     id: "pc_01",
