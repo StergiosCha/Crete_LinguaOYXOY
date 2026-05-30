@@ -1075,6 +1075,118 @@ const EXPERIMENT_B_ITEMS = [
     expected: "high"
   },
   {
+    id: "bind_04",
+    sentence: "Οι <span class='idx-a'>σκύλοι</span> δεν το κάνουν αλλά οι γάτες πλένουν <span class='idx-a'>τον εαυτό τους</span>.",
+    phenomenon: "binding",
+    condition: "principle_a_violation",
+    expected: "low"
+  },
+  {
+    id: "bind_05",
+    sentence: "Οι σκύλοι δεν το κάνουν αλλά οι <span class='idx-a'>γάτες</span> πλένουν <span class='idx-a'>τον εαυτό τους</span>.",
+    phenomenon: "binding",
+    condition: "principle_a",
+    expected: "high"
+  },
+  {
+    id: "bind_06",
+    sentence: "Ο <span class='idx-a'>οποιοσδήποτε</span> θα ήθελε να τον αγαπούν οι γονείς <span class='idx-a'>του</span> εκτός από τον Πέτρο.",
+    phenomenon: "binding",
+    condition: "principle_b",
+    expected: "high"
+  },
+  {
+    id: "bind_07",
+    sentence: "Ο οποιοσδήποτε θα ήθελε να τον αγαπούν οι γονείς <span class='idx-a'>του</span> εκτός από τον <span class='idx-a'>Πέτρο</span>.",
+    phenomenon: "binding",
+    condition: "principle_b_violation",
+    expected: "low"
+  },
+  {
+    id: "bind_08",
+    sentence: "Συνάντησε ο πατέρας <span class='idx-a'>του</span> το <span class='idx-a'>κάθε κορίτσι</span>.",
+    phenomenon: "binding",
+    condition: "principle_b_violation",
+    expected: "mid"
+  },
+  {
+    id: "bind_09",
+    sentence: "<span class='idx-a'>Κανένας</span> δεν μπορεί να <span class='idx-a'>τον</span> σκοτώσει.",
+    phenomenon: "binding",
+    condition: "principle_b_violation",
+    expected: "low"
+  },
+  {
+    id: "bind_10",
+    sentence: "Η <span class='idx-a'>Λίζα</span> βρήκε μια κάρτα <span class='idx-a'>της</span> στο πορτοφόλι της Χριστίνας.",
+    phenomenon: "binding",
+    condition: "principle_b",
+    expected: "high"
+  },
+  {
+    id: "bind_11",
+    sentence: "Η Λίζα βρήκε μια κάρτα <span class='idx-a'>της</span> στο πορτοφόλι της <span class='idx-a'>Χριστίνας</span>.",
+    phenomenon: "binding",
+    condition: "principle_b_violation",
+    expected: "low"
+  },
+  {
+    id: "bind_12",
+    sentence: "Τα <span class='idx-a'>σαρκοφάγα</span> τρώνε <span class='idx-a'>το ένα το άλλο</span>.",
+    phenomenon: "binding",
+    condition: "problematic",
+    expected: "high"
+  },
+  {
+    id: "bind_13",
+    sentence: "<span class='idx-a'>Το ένα το άλλο</span> τρώνε τα <span class='idx-a'>σαρκοφάγα</span>.",
+    phenomenon: "binding",
+    condition: "problematic",
+    expected: "mid"
+  },
+  {
+    id: "bind_14",
+    sentence: "Τα <span class='idx-a'>αγόρια</span> λένε πως τα κορίτσια μισούν <span class='idx-a'>το ένα το άλλο</span>.",
+    phenomenon: "binding",
+    condition: "problematic",
+    expected: "low"
+  },
+  {
+    id: "bind_15",
+    sentence: "<span class='idx-a'>Αυτοί</span> αγόρασαν τα βιβλία <span class='idx-a'>ο ένας του άλλου</span>.",
+    phenomenon: "binding",
+    condition: "problematic",
+    expected: "high"
+  },
+  {
+    id: "bind_16",
+    sentence: "Η <span class='idx-a'>Ελένη</span> κοιτάει μόνο <span class='idx-a'>την πάρτη της</span>.",
+    phenomenon: "binding",
+    condition: "problematic",
+    expected: "high"
+  },
+  {
+    id: "bind_17",
+    sentence: "Μόνο <span class='idx-a'>η πάρτη της</span> ενδιαφέρει την <span class='idx-a'>Ελένη</span>.",
+    phenomenon: "binding",
+    condition: "problematic",
+    expected: "high"
+  },
+  {
+    id: "bind_18",
+    sentence: "Ο Πέτρος νομίζει πως η <span class='idx-a'>Ελένη</span> κοιτάει μόνο <span class='idx-a'>την πάρτη του</span>.",
+    phenomenon: "binding",
+    condition: "problematic",
+    expected: "low"
+  },
+  {
+    id: "bind_19",
+    sentence: "Η Ελένη απείλησε την <span class='idx-a'>Άννα</span> πως θα πάει σπίτι μόνη <span class='idx-a'>της</span>.",
+    phenomenon: "binding",
+    condition: "problematic",
+    expected: "mid"
+  },
+  {
     id: "sco_01",
     sentence: "<span class='idx-a'>Ποια ηθοποιό</span> <span class='idx-a'>την</span> λατρεύει ο σύντροφος <span class='idx-a'>της</span>;",
     phenomenon: "crossover",
