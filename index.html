@@ -603,7 +603,7 @@ function DemographicsForm({ onSubmit }) {
 // ----- Instructions Screen -----
 function InstructionsScreen({ experiment, onContinue }) {
   const isA = experiment === 'A';
-  const title = isA ? 'Αξιολόγηση Φυσικότητας Προτάσεων' : 'Αξιολόγηση Συναναφοράς';
+  const title = isA ? 'Αξιολόγηση Φυσικότητας Προτάσεων' : 'Αξιολόγηση Ερμηνείας Προτάσεων';
   const text = isA
     ? 'Θα δείτε μια σειρά από προτάσεις στα ελληνικά. Βαθμολογήστε πόσο φυσική σας ακούγεται η κάθε πρόταση σε μια κλίμακα 1–7, όπου 1 = εντελώς αφύσικη και 7 = απόλυτα φυσική. Δεν υπάρχουν σωστές ή λάθος απαντήσεις — μας ενδιαφέρει η δική σας αίσθηση ως φυσικοί ομιλητές.'
     : 'Θα δείτε προτάσεις στα ελληνικά όπου κάποιες λέξεις εμφανίζονται με το ίδιο χρώμα. Οι λέξεις με το ίδιο χρώμα υποδεικνύουν ότι αναφέρονται στο ίδιο πρόσωπο ή πράγμα. Βαθμολογήστε πόσο αποδεκτή σας φαίνεται αυτή η ερμηνεία σε μια κλίμακα 1–7, όπου 1 = αδύνατη ερμηνεία και 7 = απόλυτα φυσική ερμηνεία.';
@@ -783,16 +783,42 @@ function EndScreen({ results, demographics, experiment }) {
 
 
 // ========================
+// WELCOME SCREEN (shown when using direct ?exp=a / ?exp=b links)
+// ========================
+function WelcomeScreen({ experiment, onContinue }) {
+  const title = experiment === 'A'
+    ? 'Αξιολόγηση Φυσικότητας Προτάσεων'
+    : 'Αξιολόγηση Ερμηνείας Προτάσεων';
+
+  return (
+    <div className="min-h-screen flex items-center justify-center p-4 fade-in">
+      <div className="max-w-lg w-full bg-white rounded-2xl shadow-sm p-6 sm:p-8 text-center">
+        <div className="text-sm text-gray-400 mb-2">Πανεπιστήμιο Κρήτης — Τμήμα Φιλολογίας</div>
+        <h1 className="text-2xl font-bold text-gray-800 mb-2">Γλωσσολογικό Πείραμα</h1>
+        <h2 className="text-lg text-blue-600 font-semibold mb-6">{title}</h2>
+        <p className="text-gray-600 mb-8">Σας ευχαριστούμε που συμμετέχετε! Η διαδικασία διαρκεί περίπου 15 λεπτά.</p>
+        <button
+          onClick={onContinue}
+          className="px-8 py-3 bg-blue-600 text-white rounded-xl font-semibold text-lg hover:bg-blue-700 transition"
+        >
+          Ξεκινήστε
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ========================
 // MAIN APP
 // ========================
 function App() {
-  // Phases: 'landing', 'demographics', 'instructions', 'practice', 'trial', 'end'
+  // Phases: 'landing', 'welcome', 'demographics', 'instructions', 'practice', 'trial', 'end'
   // Check URL parameters: ?exp=a → Experiment A, ?exp=b → Experiment B
   const urlParams = new URLSearchParams(window.location.search);
   const expParam = urlParams.get('exp');
   const initialExp = expParam === 'a' ? 'A' : expParam === 'b' ? 'B' : null;
 
-  const [phase, setPhase] = useState(initialExp ? 'demographics' : 'landing');
+  const [phase, setPhase] = useState(initialExp ? 'welcome' : 'landing');
   const [experiment, setExperiment] = useState(initialExp); // 'A' or 'B'
   const [demographics, setDemographics] = useState(null);
   const [results, setResults] = useState(null);
@@ -806,6 +832,10 @@ function App() {
   }, [demographics, experiment]);
 
   const practiceItems = experiment === 'A' ? EXPERIMENT_A_PRACTICE : EXPERIMENT_B_PRACTICE;
+
+  const handleWelcomeContinue = () => {
+    setPhase('demographics');
+  };
 
   const handleSelectExperiment = (exp) => {
     setExperiment(exp);
@@ -846,6 +876,8 @@ function App() {
   switch (phase) {
     case 'landing':
       return <LandingPage onSelect={handleSelectExperiment} />;
+    case 'welcome':
+      return <WelcomeScreen experiment={experiment} onContinue={handleWelcomeContinue} />;
     case 'demographics':
       return <DemographicsForm onSubmit={handleDemographics} />;
     case 'instructions':
