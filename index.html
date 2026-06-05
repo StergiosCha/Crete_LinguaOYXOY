@@ -281,7 +281,7 @@ const EXPERIMENT_B_PRACTICE = [
 const { useState, useEffect, useCallback, useRef, useMemo } = React;
 
 // ----- Google Sheets backend URL -----
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxYeuNfyHrAN8wPdopCHkVO_2YDCDaUVxcFKaQbPcb-k2eOVH--CdYAAmCbVbhjcu1g/exec';
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyK7hVMs_Ok-yir7QSMlu-bg4W7ZssiNroqhTZWp8gPgBqXX9AiJZFWwvtyNtd3ysmA/exec';
 
 // ----- Utility: submit results to Google Sheets -----
 async function submitToSheets(results, demographics, experiment) {
@@ -307,7 +307,7 @@ async function submitToSheets(results, demographics, experiment) {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ rows })
+      body: JSON.stringify({ experiment, rows })
     });
     // With no-cors, response is opaque but data is sent
     return true;
@@ -764,60 +764,18 @@ function TrialScreen({ items, experiment, demographics, onComplete }) {
 
 // ----- End Screen -----
 function EndScreen({ results, demographics, experiment }) {
-  const [showJSON, setShowJSON] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('sending'); // 'sending', 'success', 'error'
-  const csvData = useMemo(() => resultsToCSV(results, demographics, experiment), [results, demographics, experiment]);
-  const jsonData = useMemo(() => JSON.stringify({ demographics, experiment, results }, null, 2), [results, demographics, experiment]);
-
-  // Auto-submit to Google Sheets
+  // Silent submit — participant sees nothing
   useEffect(() => {
-    submitToSheets(results, demographics, experiment).then(ok => {
-      setSubmitStatus(ok ? 'success' : 'error');
-    });
+    submitToSheets(results, demographics, experiment);
   }, [results, demographics, experiment]);
-
-  // Also save to localStorage as backup
-  useEffect(() => {
-    const key = `linguaOYXOY_${experiment}_${demographics.participantId}`;
-    try {
-      localStorage.setItem(key, jsonData);
-    } catch (e) {
-      console.warn('Could not save to localStorage:', e);
-    }
-  }, [jsonData, experiment, demographics.participantId]);
-
-  const handleDownloadCSV = () => {
-    const filename = `experiment_${experiment}_${demographics.participantId}.csv`;
-    downloadCSV(csvData, filename);
-  };
-
-  const handleCopyJSON = () => {
-    navigator.clipboard.writeText(jsonData).then(() => {
-      alert('Τα δεδομένα αντιγράφηκαν!');
-    }).catch(() => {
-      // fallback: select the textarea
-      const ta = document.getElementById('json-output');
-      if (ta) { ta.select(); document.execCommand('copy'); }
-    });
-  };
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="max-w-lg w-full bg-white rounded-2xl shadow-sm p-6 sm:p-8 text-center">
         <div className="text-5xl mb-4">✓</div>
         <h2 className="text-2xl font-bold text-gray-800 mb-2">Ευχαριστούμε!</h2>
-        {submitStatus === 'sending' && (
-          <p className="text-blue-500 mb-6">Αποστολή δεδομένων...</p>
-        )}
-        {submitStatus === 'success' && (
-          <p className="text-green-600 mb-6">Οι απαντήσεις σας καταγράφηκαν επιτυχώς.</p>
-        )}
-        {submitStatus === 'error' && (
-          <div className="mb-6">
-            <p className="text-red-600 mb-2">Η αυτόματη αποστολή απέτυχε. Παρακαλώ επικοινωνήστε με τον υπεύθυνο.</p>
-          </div>
-        )}
-        <p className="text-gray-500 mt-4">Μπορείτε να κλείσετε αυτή τη σελίδα.</p>
+        <p className="text-gray-600 mb-6">Οι απαντήσεις σας καταγράφηκαν επιτυχώς.</p>
+        <p className="text-gray-500">Μπορείτε να κλείσετε αυτή τη σελίδα.</p>
       </div>
     </div>
   );
