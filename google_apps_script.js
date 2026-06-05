@@ -7,8 +7,16 @@
 // ============================================================
 
 function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
   var data = JSON.parse(e.postData.contents);
+
+  // Pick sheet tab by experiment: "Exp A" or "Exp B"
+  var expName = data.experiment || 'A';
+  var tabName = 'Exp ' + expName;
+  var sheet = ss.getSheetByName(tabName);
+  if (!sheet) {
+    sheet = ss.insertSheet(tabName);
+  }
 
   // Add header row if sheet is empty
   if (sheet.getLastRow() === 0) {
