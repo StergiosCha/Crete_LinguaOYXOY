@@ -1966,6 +1966,11 @@ function RatingScale({ value, onChange, lowLabel, highLabel }) {
 function SentenceDisplay({ sentence, context, isExpB }) {
   return (
     <div className="fade-in">
+      {isExpB && sentence.includes('idx-') && (
+        <div style={{ background: '#FFF3CD', border: '1px solid #FFCA28', borderRadius: '8px', padding: '8px 12px', marginBottom: '12px', textAlign: 'center', fontSize: '0.85rem', fontWeight: '600', color: '#6D4C00' }}>
+          Υπενθύμιση: Οι λέξεις με το ίδιο χρώμα αναφέρονται στο ίδιο πρόσωπο.
+        </div>
+      )}
       {context && context.trim() !== '' && (
         <div className="context-box" style={{ fontStyle: 'italic' }}>
           {context}
