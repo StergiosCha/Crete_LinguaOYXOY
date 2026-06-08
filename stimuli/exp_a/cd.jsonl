@@ -18,49 +18,22 @@
 {"id": "cd_18", "sentence": "Της εξήγησα της φοιτήτριας τις απαιτήσεις του μαθήματος.", "phenomenon": "cd", "condition": "definite_canon_gen", "expected": "high"}
 {"id": "cd_19", "sentence": "Τον χρειάζομαι έναν υπνάκο.", "phenomenon": "cd", "condition": "indefinite_non_specific", "expected": "high"}
 {"id": "cd_20", "sentence": "Την πήγαινα μια βόλτα.", "phenomenon": "cd", "condition": "indefinite_non_specific", "expected": "high"}
-{"id": "cd_11a", "sentence": "Μια κοπέλα τη γνώρισα στο πάρτι.", "phenomenon": "cd", "condition": "indef_specific_doubled", "expected": "mid"}
-{"id": "cd_11b", "sentence": "Μια κοπέλα γνώρισα στο πάρτι.", "phenomenon": "cd", "condition": "indef_specific_bare", "expected": "high"}
-{"id": "cd_12a", "sentence": "Έναν καθηγητή τον συνάντησα στο συνέδριο.", "phenomenon": "cd", "condition": "indef_specific_doubled", "expected": "mid"}
-{"id": "cd_12b", "sentence": "Έναν καθηγητή συνάντησα στο συνέδριο.", "phenomenon": "cd", "condition": "indef_specific_bare", "expected": "high"}
-{"id": "cd_13a", "sentence": "Κάποιον φίλο τον κάλεσα αλλά δεν θυμάμαι ποιον.", "phenomenon": "cd", "condition": "indef_nonspec_doubled", "expected": "low"}
-{"id": "cd_13b", "sentence": "Κάποιον φίλο κάλεσα αλλά δεν θυμάμαι ποιον.", "phenomenon": "cd", "condition": "indef_nonspec_bare", "expected": "high"}
-{"id": "cd_14a", "sentence": "Κάποια γυναίκα τη ρώτησα για το δρόμο.", "phenomenon": "cd", "condition": "indef_nonspec_doubled", "expected": "low"}
-{"id": "cd_14b", "sentence": "Κάποια γυναίκα ρώτησα για το δρόμο.", "phenomenon": "cd", "condition": "indef_nonspec_bare", "expected": "high"}
-{"id": "cd_15a", "sentence": "Κάποιον συνάδελφο τον ψάχνω.", "phenomenon": "cd", "condition": "indef_nonspec_doubled", "expected": "low"}
-{"id": "cd_15b", "sentence": "Κάποιον συνάδελφο ψάχνω.", "phenomenon": "cd", "condition": "indef_nonspec_bare", "expected": "high"}
-{"id": "cd_16a", "sentence": "Φίλο τον κάλεσα.", "phenomenon": "cd", "condition": "bare_np_doubled", "expected": "low"}
-{"id": "cd_16b", "sentence": "Φίλο κάλεσα.", "phenomenon": "cd", "condition": "bare_np_bare", "expected": "high"}
-{"id": "cd_17a", "sentence": "Δουλειά τη βρήκα.", "phenomenon": "cd", "condition": "bare_np_doubled", "expected": "low"}
-{"id": "cd_17b", "sentence": "Δουλειά βρήκα.", "phenomenon": "cd", "condition": "bare_np_bare", "expected": "high"}
-{"id": "cd_18a", "sentence": "Σπίτι το νοίκιασα.", "phenomenon": "cd", "condition": "bare_np_doubled", "expected": "low"}
-{"id": "cd_18b", "sentence": "Σπίτι νοίκιασα.", "phenomenon": "cd", "condition": "bare_np_bare", "expected": "high"}
-{"id": "cd_19a", "sentence": "Τους είδα μερικούς φοιτητές στη βιβλιοθήκη.", "phenomenon": "cd", "condition": "merikous_doubled", "expected": "mid"}
-{"id": "cd_19b", "sentence": "Μερικούς φοιτητές είδα στη βιβλιοθήκη.", "phenomenon": "cd", "condition": "merikous_bare", "expected": "high"}
-{"id": "cd_20a", "sentence": "Τις κάλεσα μερικές φίλες στο σπίτι.", "phenomenon": "cd", "condition": "merikous_doubled", "expected": "mid"}
-{"id": "cd_20b", "sentence": "Μερικές φίλες κάλεσα στο σπίτι.", "phenomenon": "cd", "condition": "merikous_bare", "expected": "high"}
-{"id": "cd_21a", "sentence": "Τους γνωρίζω λίγους ανθρώπους εδώ.", "phenomenon": "cd", "condition": "merikous_doubled", "expected": "mid"}
-{"id": "cd_21b", "sentence": "Λίγους ανθρώπους γνωρίζω εδώ.", "phenomenon": "cd", "condition": "merikous_bare", "expected": "high"}
-{"id": "cd_22a", "sentence": "Τους κάλεσα πολλούς φίλους στο γάμο.", "phenomenon": "cd", "condition": "pollous_doubled", "expected": "low"}
-{"id": "cd_22b", "sentence": "Πολλούς φίλους κάλεσα στο γάμο.", "phenomenon": "cd", "condition": "pollous_bare", "expected": "high"}
-{"id": "cd_23a", "sentence": "Τους είδα πολλούς καθηγητές στο συνέδριο.", "phenomenon": "cd", "condition": "pollous_doubled", "expected": "low"}
-{"id": "cd_23b", "sentence": "Πολλούς καθηγητές είδα στο συνέδριο.", "phenomenon": "cd", "condition": "pollous_bare", "expected": "high"}
-{"id": "cd_24a", "sentence": "Τις γνώρισα περισσότερες κοπέλες φέτος.", "phenomenon": "cd", "condition": "pollous_doubled", "expected": "low"}
-{"id": "cd_24b", "sentence": "Περισσότερες κοπέλες γνώρισα φέτος.", "phenomenon": "cd", "condition": "pollous_bare", "expected": "high"}
-{"id": "cd_25a", "sentence": "Το συνάντησα κάθε παιδί στη γιορτή.", "phenomenon": "cd", "condition": "kathe_doubled", "expected": "low"}
-{"id": "cd_25b", "sentence": "Κάθε παιδί συνάντησα στη γιορτή.", "phenomenon": "cd", "condition": "kathe_bare", "expected": "high"}
-{"id": "cd_26a", "sentence": "Τον ρώτησα κάθε φοιτητή.", "phenomenon": "cd", "condition": "kathe_doubled", "expected": "low"}
-{"id": "cd_26b", "sentence": "Κάθε φοιτητή ρώτησα.", "phenomenon": "cd", "condition": "kathe_bare", "expected": "high"}
-{"id": "cd_27a", "sentence": "Την κάλεσα κάθε συνάδελφο.", "phenomenon": "cd", "condition": "kathe_doubled", "expected": "low"}
-{"id": "cd_27b", "sentence": "Κάθε συνάδελφο κάλεσα.", "phenomenon": "cd", "condition": "kathe_bare", "expected": "high"}
-{"id": "cd_28a", "sentence": "Δεν τον είδα κανέναν στο σπίτι.", "phenomenon": "cd", "condition": "kanenan_doubled", "expected": "low"}
-{"id": "cd_28b", "sentence": "Δεν είδα κανέναν στο σπίτι.", "phenomenon": "cd", "condition": "kanenan_bare", "expected": "high"}
-{"id": "cd_29a", "sentence": "Δεν την κάλεσα καμία.", "phenomenon": "cd", "condition": "kanenan_doubled", "expected": "low"}
-{"id": "cd_29b", "sentence": "Δεν κάλεσα καμία.", "phenomenon": "cd", "condition": "kanenan_bare", "expected": "high"}
-{"id": "cd_30a", "sentence": "Δεν τους γνωρίζω κανέναν από αυτούς.", "phenomenon": "cd", "condition": "kanenan_doubled", "expected": "low"}
-{"id": "cd_30b", "sentence": "Δεν γνωρίζω κανέναν από αυτούς.", "phenomenon": "cd", "condition": "kanenan_bare", "expected": "high"}
-{"id": "cd_31a", "sentence": "Όποιος τελείωσε το γραπτό του μπορεί να μου το δώσει.", "phenomenon": "cd", "condition": "island_doubled", "expected": "low"}
-{"id": "cd_31b", "sentence": "Τελείωσε το γραπτό του και μου το έδωσε.", "phenomenon": "cd", "condition": "island_baseline", "expected": "high"}
-{"id": "cd_32a", "sentence": "Επειδή η Μαρία καθυστέρησε την εργασία, της την κατέθεσα εγώ.", "phenomenon": "cd", "condition": "island_doubled", "expected": "low"}
-{"id": "cd_32b", "sentence": "Η Μαρία καθυστέρησε την εργασία και της την κατέθεσα.", "phenomenon": "cd", "condition": "island_baseline", "expected": "high"}
-{"id": "cd_33a", "sentence": "Όποιος το τελείωσε το διαγώνισμα να το παραδώσει.", "phenomenon": "cd", "condition": "island_doubled", "expected": "low"}
-{"id": "cd_33b", "sentence": "Τελείωσε το διαγώνισμα και το παρέδωσε.", "phenomenon": "cd", "condition": "island_baseline", "expected": "high"}
+{"id": "cd_21", "sentence": "Τον νιώθω έναν φόβο τώρα.", "phenomenon": "cd", "condition": "indefinite_non_specific", "expected": "high"}
+{"id": "cd_22", "sentence": "Από παιδί τον έψαχνα έναν μονόκερο.", "phenomenon": "cd", "condition": "indefinite_non_specific", "expected": "high"}
+{"id": "cd_23", "sentence": "Τα Χριστούγεννα εύχομαι να το δω ένα ξωτικό.", "phenomenon": "cd", "condition": "indefinite_non_specific", "expected": "high"}
+{"id": "cd_24", "sentence": "Ο Αριστοτέλης είπε ότι θα τον συναντήσουμε έναν κένταυρο στον δρόμο μας.", "phenomenon": "cd", "condition": "indefinite_non_specific", "expected": "high"}
+{"id": "cd_25", "sentence": "Την ψάχνω μια μπλούζα κόκκινη στην ντουλάπα για το πάρτυ.", "phenomenon": "cd", "condition": "indefinite_specific", "expected": "mid"}
+{"id": "cd_26", "sentence": "Τον αναγνώρισα έναν φίλο φοιτητή στο χθεσινό συνέδριο.", "phenomenon": "cd", "condition": "indefinite_specific", "expected": "mid"}
+{"id": "cd_27", "sentence": "Την έχασα μία θήκη δερμάτινη για το κινητό.", "phenomenon": "cd", "condition": "indefinite_specific", "expected": "mid"}
+{"id": "cd_28", "sentence": "Τον είδα κάθε φοιτητή στη βιβλιοθήκη να διαβάζει.", "phenomenon": "cd", "condition": "quantifier_all", "expected": "high"}
+{"id": "cd_29", "sentence": "Την έκοψαν κάθε φοιτήτρια στις εξετάσεις.", "phenomenon": "cd", "condition": "quantifier_all", "expected": "high"}
+{"id": "cd_30", "sentence": "Τον συμβουλεύτηκα κάθε καθηγητή μου.", "phenomenon": "cd", "condition": "quantifier_all", "expected": "high"}
+{"id": "cd_31", "sentence": "Τα έγραψε μερικά γράμματα ο Γιάννης.", "phenomenon": "cd", "condition": "quantifier_some", "expected": "high"}
+{"id": "cd_32", "sentence": "Τους συνόδευσαν μερικούς άνδρες αστυνομικοί.", "phenomenon": "cd", "condition": "quantifier_some", "expected": "high"}
+{"id": "cd_33", "sentence": "Τις εξαπάτησαν μερικές κοπέλες εγκληματίες.", "phenomenon": "cd", "condition": "quantifier_some", "expected": "high"}
+{"id": "cd_34", "sentence": "Τους απομάκρυνε πολλούς φίλους ο Γιάννης.", "phenomenon": "cd", "condition": "quantifier_most", "expected": "high"}
+{"id": "cd_35", "sentence": "Τις αγκάλιασα πολλές κοπέλες στο φεστιβάλ.", "phenomenon": "cd", "condition": "quantifier_most", "expected": "high"}
+{"id": "cd_36", "sentence": "Τους άκουσα πολλούς καθηγητές στην ομιλία.", "phenomenon": "cd", "condition": "quantifier_most", "expected": "high"}
+{"id": "cd_37", "sentence": "Δεν τον είδα κανέναν στην αυλή, ήταν όλοι στο σαλόνι.", "phenomenon": "cd", "condition": "quantifier_neg", "expected": "mid"}
+{"id": "cd_38", "sentence": "Την ήξερα στο σαλόνι καμία.", "phenomenon": "cd", "condition": "quantifier_neg", "expected": "low"}
+{"id": "cd_39", "sentence": "Το άφησαν κανένα μπισκότο στο μπολ.", "phenomenon": "cd", "condition": "quantifier_neg", "expected": "low"}
