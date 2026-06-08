@@ -9,7 +9,7 @@
 {"id": "filler_09", "sentence": "Από την αγορά 3 μήλα και 4 μελιτζάνες για μουσακά αγόρασε η Στέλλα.", "phenomenon": "word_order", "condition": "ovs", "expected": "mid"}
 {"id": "filler_10", "sentence": "Όλα τα βίντεο που του έστειλε ο Μήτσος είδε ο Πέτρος.", "phenomenon": "word_order", "condition": "ovs", "expected": "mid"}
 {"id": "filler_11", "sentence": "Στη μάζωξη όλα του τα παιδιά έφερε ο Χρήστος.", "phenomenon": "word_order", "condition": "ovs", "expected": "mid"}
-{"id": "filler_12", "sentence": "Τρία μυρμήγκια έφαγε ο Αποστόλης.", "phenomenon": "word_order", "condition": "ovs", "expected": high"}
+{"id": "filler_12", "sentence": "Τρία μυρμήγκια έφαγε ο Αποστόλης.", "phenomenon": "word_order", "condition": "ovs", "expected": "high"}
 {"id": "filler_13", "sentence": "Αγόρασε η Στέλλα από την αγορά 3 μήλα και 4 μελιτζάνες για μουσακά.", "phenomenon": "word_order", "condition": "vso", "expected": "high"}
 {"id": "filler_14", "sentence": "Έχει ταξιδέψει ο Παύλος σε όλα τα μήκη και πλάτη του κόσμου.", "phenomenon": "word_order", "condition": "vso", "expected": "high"}
 {"id": "filler_15", "sentence": "Έβγαλε η Μαρία όλες τις αφίσες από τον τοίχο της.", "phenomenon": "word_order", "condition": "vso", "expected": "high"}
