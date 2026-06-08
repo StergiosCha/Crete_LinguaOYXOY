@@ -1,23 +1,23 @@
-{"id": "cd_01a", "sentence": "Αυτόν τον είδα χτες στο δρόμο.", "phenomenon": "cd", "condition": "pronoun_doubled", "expected": "high"}
-{"id": "cd_01b", "sentence": "Αυτόν είδα χτες στο δρόμο.", "phenomenon": "cd", "condition": "pronoun_bare", "expected": "low"}
-{"id": "cd_02a", "sentence": "Αυτήν την κάλεσα στο πάρτι.", "phenomenon": "cd", "condition": "pronoun_doubled", "expected": "high"}
-{"id": "cd_02b", "sentence": "Αυτήν κάλεσα στο πάρτι.", "phenomenon": "cd", "condition": "pronoun_bare", "expected": "low"}
-{"id": "cd_03a", "sentence": "Αυτόν τον γνωρίζω από το σχολείο.", "phenomenon": "cd", "condition": "pronoun_doubled", "expected": "high"}
-{"id": "cd_03b", "sentence": "Αυτόν γνωρίζω από το σχολείο.", "phenomenon": "cd", "condition": "pronoun_bare", "expected": "low"}
-{"id": "cd_04a", "sentence": "Τον Γιάννη τον είδα στην αγορά.", "phenomenon": "cd", "condition": "proper_name_doubled", "expected": "high"}
-{"id": "cd_04b", "sentence": "Τον Γιάννη είδα στην αγορά.", "phenomenon": "cd", "condition": "proper_name_bare", "expected": "mid"}
-{"id": "cd_05a", "sentence": "Τη Μαρία τη συνάντησα στο πανεπιστήμιο.", "phenomenon": "cd", "condition": "proper_name_doubled", "expected": "high"}
-{"id": "cd_05b", "sentence": "Τη Μαρία συνάντησα στο πανεπιστήμιο.", "phenomenon": "cd", "condition": "proper_name_bare", "expected": "mid"}
-{"id": "cd_06a", "sentence": "Τον Κώστα τον κάλεσα για καφέ.", "phenomenon": "cd", "condition": "proper_name_doubled", "expected": "high"}
-{"id": "cd_06b", "sentence": "Τον Κώστα κάλεσα για καφέ.", "phenomenon": "cd", "condition": "proper_name_bare", "expected": "mid"}
-{"id": "cd_07a", "sentence": "Τον φίλο μου τον είδα στο πάρκο.", "phenomenon": "cd", "condition": "definite_dp_doubled", "expected": "high"}
-{"id": "cd_07b", "sentence": "Τον φίλο μου είδα στο πάρκο.", "phenomenon": "cd", "condition": "definite_dp_bare", "expected": "mid"}
-{"id": "cd_08a", "sentence": "Τη δασκάλα τη ρώτησα για το μάθημα.", "phenomenon": "cd", "condition": "definite_dp_doubled", "expected": "high"}
-{"id": "cd_08b", "sentence": "Τη δασκάλα ρώτησα για το μάθημα.", "phenomenon": "cd", "condition": "definite_dp_bare", "expected": "mid"}
-{"id": "cd_09a", "sentence": "Τον γιατρό τον επισκέφτηκα χτες.", "phenomenon": "cd", "condition": "definite_dp_doubled", "expected": "high"}
-{"id": "cd_09b", "sentence": "Τον γιατρό επισκέφτηκα χτες.", "phenomenon": "cd", "condition": "definite_dp_bare", "expected": "mid"}
-{"id": "cd_10a", "sentence": "Έναν φίλο τον είδα στο μετρό.", "phenomenon": "cd", "condition": "indef_specific_doubled", "expected": "mid"}
-{"id": "cd_10b", "sentence": "Έναν φίλο είδα στο μετρό.", "phenomenon": "cd", "condition": "indef_specific_bare", "expected": "high"}
+{"id": "cd_01", "sentence": "Τον είδα τον Γιάννη χθες στο πανεπιστήμιο.", "phenomenon": "cd", "condition": "definite_proper", "expected": "high"}
+{"id": "cd_02", "sentence": "Τη συνάντησα τη Μαρία μετά το μάθημα.", "phenomenon": "cd", "condition": "definite_proper", "expected": "high"}
+{"id": "cd_03", "sentence": "Τον προσέλαβα χθες στη δουλειά τον Κώστα.", "phenomenon": "cd", "condition": "definite_proper", "expected": "high"}
+{"id": "cd_04", "sentence": "Τον χαιρέτησα τον καινούριο καθηγητή στην αίθουσα.", "phenomenon": "cd", "condition": "definite_full_np", "expected": "high"}
+{"id": "cd_05", "sentence": "Τη βοήθησα τη φοιτήτρια του μεταπτυχιακού.", "phenomenon": "cd", "condition": "definite_full_np", "expected": "high"}
+{"id": "cd_06", "sentence": "Τους συνάντησα τους εργαζόμενους της εταιρείας.", "phenomenon": "cd", "condition": "definite_full_np", "expected": "high"}
+{"id": "cd_07", "sentence": "Των είπαν των αστυνόμων να πάνε.", "phenomenon": "cd", "condition": "definite_genitive_ton", "expected": "mid"}
+{"id": "cd_08", "sentence": "Των έγραψαν των καθηγητών ότι αναβάλλεται η εξέταση.", "phenomenon": "cd", "condition": "definite_genitive_ton", "expected": "low"}
+{"id": "cd_09", "sentence": "Των έδωσαν των φοιτητών τα αποτελέσματα.", "phenomenon": "cd", "condition": "definite_genitive_ton", "expected": "low"}
+{"id": "cd_10", "sentence": "Τους άκουσα των φοιτητών τα παράπονα.", "phenomenon": "cd", "condition": "definite_genitive_tous", "expected": "low"}
+{"id": "cd_11", "sentence": "Τους ρώτησα των παιδιών την ώρα.", "phenomenon": "cd", "condition": "definite_genitive_tous", "expected": "low"}
+{"id": "cd_12", "sentence": "Τους μίλησα των ανθρώπων για το πρόβλημά μας.", "phenomenon": "cd", "condition": "definite_genitive_tous", "expected": "low"}
+{"id": "cd_13", "sentence": "Τους μίλησα στους φοιτητές για την εργασία.", "phenomenon": "cd", "condition": "definite_doubled_prepp", "expected": "low"}
+{"id": "cd_14", "sentence": "Της εξήγησα στη Μαρία το πρόβλημα.", "phenomenon": "cd", "condition": "definite_doubled_prepp", "expected": "low"}
+{"id": "cd_15", "sentence": "Του έδωσα στον Νίκο τα βιβλία.", "phenomenon": "cd", "condition": "definite_doubled_prepp", "expected": "low"}
+{"id": "cd_16", "sentence": "Του έδειξα του Γιάννη το καινούριο γραφείο.", "phenomenon": "cd", "condition": "definite_canon_gen", "expected": "high"}
+{"id": "cd_17", "sentence": "Της ανέφερα της Μαρίας τα αποτελέσματα της έρευνας.", "phenomenon": "cd", "condition": "definite_canon_gen", "expected": "high"}
+{"id": "cd_18", "sentence": "Της εξήγησα της φοιτήτριας τις απαιτήσεις του μαθήματος.", "phenomenon": "cd", "condition": "definite_canon_gen", "expected": "high"}
+{"id": "cd_19", "sentence": "Τον χρειάζομαι έναν υπνάκο.", "phenomenon": "cd", "condition": "indefinite_non_specific", "expected": "high"}
+{"id": "cd_20", "sentence": "Την πήγαινα μια βόλτα.", "phenomenon": "cd", "condition": "indefinite_non_specific", "expected": "high"}
 {"id": "cd_11a", "sentence": "Μια κοπέλα τη γνώρισα στο πάρτι.", "phenomenon": "cd", "condition": "indef_specific_doubled", "expected": "mid"}
 {"id": "cd_11b", "sentence": "Μια κοπέλα γνώρισα στο πάρτι.", "phenomenon": "cd", "condition": "indef_specific_bare", "expected": "high"}
 {"id": "cd_12a", "sentence": "Έναν καθηγητή τον συνάντησα στο συνέδριο.", "phenomenon": "cd", "condition": "indef_specific_doubled", "expected": "mid"}
