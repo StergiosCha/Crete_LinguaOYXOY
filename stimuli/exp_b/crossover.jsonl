@@ -1,27 +1,24 @@
-{"id": "co_01a", "sentence": "Ποιον είδε αυτός τελικά;", "phenomenon": "crossover", "condition": "sco_wh_resumptive", "expected": "mid"}
-{"id": "co_02a", "sentence": "Ποιον γιατρό εμπιστεύεται αυτός τελικά;", "phenomenon": "crossover", "condition": "sco_wh_resumptive", "expected": "mid"}
-{"id": "co_03a", "sentence": "Ποιον παππού αγαπάει αυτός περισσότερο;", "phenomenon": "crossover", "condition": "sco_wh_resumptive", "expected": "mid"}
-{"id": "co_04a", "sentence": "Ποιον γιατρό τον εμπιστεύεται αυτός;", "phenomenon": "crossover", "condition": "sco_wh_restrictive", "expected": "mid"}
-{"id": "co_05a", "sentence": "Ποια ηθοποιό την λατρεύει ο σύντροφός της;", "phenomenon": "crossover", "condition": "sco_wh_restrictive", "expected": "mid"}
-{"id": "co_06a", "sentence": "Ποιο παιδί το χαϊδεύει η γιαγιά του;", "phenomenon": "crossover", "condition": "sco_wh_restrictive", "expected": "mid"}
-{"id": "co_07a", "sentence": "Ποιον γιατρό εμπιστεύεται η γυναίκα του;", "phenomenon": "crossover", "condition": "wco_wh_possessive", "expected": "mid"}
-{"id": "co_08a", "sentence": "Ποιον πολιτικό ψηφίζει η οικογένειά του;", "phenomenon": "crossover", "condition": "wco_wh_possessive", "expected": "mid"}
-{"id": "co_09a", "sentence": "Ποιον καθηγητή θαυμάζει η μητέρα του;", "phenomenon": "crossover", "condition": "wco_wh_possessive", "expected": "mid"}
-{"id": "co_10a", "sentence": "Ποιον νομίζει η μητέρα του ότι είδε η Μαρία;", "phenomenon": "crossover", "condition": "wco_long_distance", "expected": "low"}
-{"id": "co_11a", "sentence": "Ποιον πιστεύει ο πατέρας του ότι κάλεσε η Ελένη;", "phenomenon": "crossover", "condition": "wco_long_distance", "expected": "low"}
-{"id": "co_12a", "sentence": "Ποιον λέει η δασκάλα του ότι βοήθησε ο Κώστας;", "phenomenon": "crossover", "condition": "wco_long_distance", "expected": "low"}
-{"id": "co_13a", "sentence": "Τον Γιάννη τον αγαπάει η μητέρα του.", "phenomenon": "crossover", "condition": "clld_bound", "expected": "high"}
-{"id": "co_14a", "sentence": "Τον Κώστα τον θαυμάζει η δασκάλα του.", "phenomenon": "crossover", "condition": "clld_bound", "expected": "high"}
-{"id": "co_15a", "sentence": "Τον Νίκο τον στηρίζει ο πατέρας του.", "phenomenon": "crossover", "condition": "clld_bound", "expected": "high"}
-{"id": "co_16a", "sentence": "Κάθε φοιτητή φοβάται ο συμφοιτητής του.", "phenomenon": "crossover", "condition": "quant_kathe_bound", "expected": "mid"}
-{"id": "co_17a", "sentence": "Κάθε μαθητή βοηθάει ο δάσκαλός του.", "phenomenon": "crossover", "condition": "quant_kathe_bound", "expected": "mid"}
-{"id": "co_18a", "sentence": "Κάθε γιατρό εμπιστεύεται ο ασθενής του.", "phenomenon": "crossover", "condition": "quant_kathe_bound", "expected": "mid"}
-{"id": "co_19a", "sentence": "Κανέναν φοιτητή δεν εκτιμά ο καθηγητής του.", "phenomenon": "crossover", "condition": "quant_kanenan_bound", "expected": "low"}
-{"id": "co_20a", "sentence": "Κανέναν πελάτη δεν εξυπηρετεί ο υπάλληλός του σωστά.", "phenomenon": "crossover", "condition": "quant_kanenan_bound", "expected": "low"}
-{"id": "co_21a", "sentence": "Κανέναν μαθητή δεν βοηθάει ο δάσκαλός του.", "phenomenon": "crossover", "condition": "quant_kanenan_bound", "expected": "low"}
-{"id": "co_22a", "sentence": "Μερικούς φοιτητές ξεχωρίζει πάντα ο καθηγητής τους.", "phenomenon": "crossover", "condition": "quant_merikous_bound", "expected": "mid"}
-{"id": "co_23a", "sentence": "Πολλούς φοιτητές βοηθά ο καθηγητής τους.", "phenomenon": "crossover", "condition": "quant_merikous_bound", "expected": "mid"}
-{"id": "co_24a", "sentence": "Αρκετούς φίλους είδε η παρέα τους χτες.", "phenomenon": "crossover", "condition": "quant_merikous_bound", "expected": "mid"}
-{"id": "co_25a", "sentence": "Η μητέρα του αγαπάει τον Γιάννη.", "phenomenon": "crossover", "condition": "baseline", "expected": "high"}
-{"id": "co_26a", "sentence": "Ο πατέρας του στηρίζει τον Κώστα.", "phenomenon": "crossover", "condition": "baseline", "expected": "high"}
-{"id": "co_27a", "sentence": "Η δασκάλα του θαυμάζει τον Νίκο.", "phenomenon": "crossover", "condition": "baseline", "expected": "high"}
+{"id": "sco_01", "sentence": "<span class='idx-a'>Ποια ηθοποιό</span> <span class='idx-a'>την</span> λατρεύει ο σύντροφος <span class='idx-a'>της</span>;", "phenomenon": "crossover", "condition": "sco_wh", "expected": "mid"}
+{"id": "sco_02", "sentence": "<span class='idx-a'>Ποια</span> την επέλεξε <span class='idx-a'>αυτήν</span> για την εκπροσώπηση;", "phenomenon": "crossover", "condition": "sco_wh", "expected": "low"}
+{"id": "sco_03", "sentence": "<span class='idx-a'>Ποια την</span> σχολίασε <span class='idx-a'>εκείνη</span> στις ειδήσεις;", "phenomenon": "crossover", "condition": "sco_wh", "expected": "low"}
+{"id": "sco_04", "sentence": "<span class='idx-a'>Ποιον τον</span> είδε <span class='idx-a'>αυτός</span> τελικά;", "phenomenon": "crossover", "condition": "sco_wh", "expected": "low"}
+{"id": "sco_05", "sentence": "<span class='idx-a'>Ποιον τον</span> παρουσίασε <span class='idx-a'>εκείνος</span> στο συνέδριο;", "phenomenon": "crossover", "condition": "sco_wh", "expected": "low"}
+{"id": "sco_06", "sentence": "<span class='idx-a'>Ποιον τον</span> κάλεσε <span class='idx-a'>αυτόν</span> ξανά νωρίς το πρωί;", "phenomenon": "crossover", "condition": "sco_wh", "expected": "low"}
+{"id": "sco_07", "sentence": "Κάθε <span class='idx-a'>φοιτητή τον</span> αξιολόγησε <span class='idx-a'>αυτός</span> αυστηρά.", "phenomenon": "crossover", "condition": "sco_all", "expected": "low"}
+{"id": "sco_08", "sentence": "Κάθε <span class='idx-a'>μάγειρα τον</span> ρίχνει η επίδοσή <span class='idx-a'>του</span>.", "phenomenon": "crossover", "condition": "sco_all", "expected": "high"}
+{"id": "sco_09", "sentence": "Κάθε <span class='idx-a'>ναυαγοσώστης τον</span> φροντίζει τον εξοπλισμό <span class='idx-a'>του</span>.", "phenomenon": "crossover", "condition": "sco_all", "expected": "high"}
+{"id": "sco_10", "sentence": "Μερικούς <span class='idx-a'>αθλητές τους</span> επαίνεσε <span class='idx-a'>εκείνος</span> μετά τον αγώνα.", "phenomenon": "crossover", "condition": "sco_some", "expected": "low"}
+{"id": "sco_11", "sentence": "Μερικούς <span class='idx-a'>πυροσβέστες τους</span> πήραν για τη διάσωση.", "phenomenon": "crossover", "condition": "sco_some", "expected": "high"}
+{"id": "sco_12", "sentence": "Μερικούς <span class='idx-a'>Ρωμαίους συγγραφείς τους</span> διδάσκονται στο Πανεπιστήμιο.", "phenomenon": "crossover", "condition": "sco_some", "expected": "high"}
+{"id": "sco_13", "sentence": "Κανέναν <span class='idx-a'>φοιτητή τον</span> συνάντησε <span class='idx-a'>αυτός</span>.", "phenomenon": "crossover", "condition": "sco_neg", "expected": "low"}
+{"id": "sco_14", "sentence": "Κανέναν <span class='idx-a'>πίνακα τον</span> δημιούργησε <span class='idx-a'>εκείνος</span>.", "phenomenon": "crossover", "condition": "sco_neg", "expected": "low"}
+{"id": "sco_15", "sentence": "Κανέναν <span class='idx-a'>μουσακά</span> δεν <span class='idx-a'>τον</span> έφαγε η αδερφή <span class='idx-a'>του</span>.", "phenomenon": "crossover", "condition": "sco_neg", "expected": "low"}
+{"id": "wco_01", "sentence": "Κανέναν <span class='idx-a'>φοιτητή</span> δεν εκτιμά ο καθηγητής <span class='idx-a'>του</span>.", "phenomenon": "crossover", "condition": "wco_neg", "expected": "mid"}
+{"id": "wco_02", "sentence": "Κανέναν <span class='idx-a'>καλλιτέχνη</span> δεν υποστηρίζει η γενιά <span class='idx-a'>του</span>.", "phenomenon": "crossover", "condition": "wco_neg", "expected": "mid"}
+{"id": "wco_03", "sentence": "Κανέναν <span class='idx-a'>πελάτη</span> εκτιμούν οι υπάλληλοί <span class='idx-a'>τους</span>.", "phenomenon": "crossover", "condition": "wco_neg", "expected": "low"}
+{"id": "wco_04", "sentence": "Μερικούς <span class='idx-a'>μουσικούς</span> ψάχνει η παραγωγή <span class='idx-a'>τους</span>.", "phenomenon": "crossover", "condition": "wco_some", "expected": "mid"}
+{"id": "wco_05", "sentence": "Μερικούς <span class='idx-a'>φιλοσόφους</span> μελετούσαν οι ακαδημαϊκοί <span class='idx-a'>τους</span>.", "phenomenon": "crossover", "condition": "wco_some", "expected": "mid"}
+{"id": "wco_06", "sentence": "Μερικούς <span class='idx-a'>φοιτητές</span> ξεχωρίζει πάντα ο καθηγητής <span class='idx-a'>τους</span>.", "phenomenon": "crossover", "condition": "wco_some", "expected": "mid"}
+{"id": "wco_07", "sentence": "Κάθε <span class='idx-a'>αριστούχος</span> φοβάται τον ανταγωνισμό <span class='idx-a'>του</span>.", "phenomenon": "crossover", "condition": "wco_all", "expected": "high"}
+{"id": "wco_08", "sentence": "Κάθε <span class='idx-a'>ηθοποιό</span> επαινεί ο σκηνοθέτης <span class='idx-a'>του</span>.", "phenomenon": "crossover", "condition": "wco_all", "expected": "mid"}
+{"id": "wco_09", "sentence": "Κάθε <span class='idx-a'>δικηγόρος</span> δεν πτοείται από τις προκλήσεις <span class='idx-a'>του</span>.", "phenomenon": "crossover", "condition": "wco_all", "expected": "mid"}
