@@ -84,6 +84,16 @@ SYSTEM_PROMPT = (
     "Απάντησε ΜΟΝΟ με έναν αριθμό."
 )
 
+# Coreference addendum — appended to system prompt for binding/crossover items
+COREFERENCE_NOTE = (
+    " Σημείωση: Οι αγκύλες [...] με δείκτες (ᵢ, ⱼ) δηλώνουν συναναφορά — "
+    "οι εκφράσεις με τον ίδιο δείκτη αναφέρονται στο ίδιο πρόσωπο/πράγμα. "
+    "Βαθμολόγησε τη φυσικότητα της πρότασης ΜΕ αυτή τη συγκεκριμένη ανάγνωση."
+)
+
+# Phenomena that use coreference bracket notation
+COREFERENCE_PHENOMENA = {"binding", "crossover"}
+
 # For dialect experiments, use a dialect-specified prompt instead:
 DIALECT_PROMPTS = {
     "cypriot": (
@@ -349,6 +359,10 @@ def run_experiment(stimuli, model_names, n_reps=10, temperature=0.7, dry_run=Fal
                 sys_prompt = DIALECT_PROMPTS[dialect]
             else:
                 sys_prompt = SYSTEM_PROMPT
+
+            # Add coreference instruction for binding/crossover
+            if item.get("phenomenon") in COREFERENCE_PHENOMENA:
+                sys_prompt = sys_prompt + COREFERENCE_NOTE
 
             # Build user message
             user_msg = item["sentence"]
