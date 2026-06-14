@@ -1,5 +1,5 @@
 {
-  "_README": "All models deployed on crete-xamoulis-resource. 10 models, 5 providers.",
+  "_README": "All models deployed on crete-xamoulis-resource. 10 models, 6 providers.",
 
   "gpt-4o": {
     "type": "azure_openai",
@@ -8,6 +8,15 @@
     "size": "unknown (large)",
     "provider": "OpenAI",
     "reasoning": false
+  },
+  "gpt-5.4-pro": {
+    "type": "gpt54_responses",
+    "deployment": "gpt-5.4-pro",
+    "category": "closed",
+    "size": "unknown (large)",
+    "provider": "OpenAI",
+    "reasoning": true,
+    "notes": "Reasoning model. Uses Responses API, not Chat Completions."
   },
   "DeepSeek-V3.1": {
     "type": "azure_ai",
