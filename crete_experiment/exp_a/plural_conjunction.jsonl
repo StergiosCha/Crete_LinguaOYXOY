@@ -1,0 +1,24 @@
+{"id": "pc_01", "sentence": "Ο Γιάννης και η Μαρία έφυγαν από το πάρτι μετά τα μεσάνυχτα.", "phenomenon": "plural_conjunction", "condition": "kai_plural_preverbal", "expected": "high"}
+{"id": "pc_02", "sentence": "Η Μαρία κι ο φίλος της δεν βλέπει εξέλιξη στη σχέση τους.", "phenomenon": "plural_conjunction", "condition": "kai_singular_preverbal", "expected": "low"}
+{"id": "pc_03", "sentence": "Ο σκύλος κι οι γάτες της Μαρίας έχουν καταστρέψει όλο το σπίτι.", "phenomenon": "plural_conjunction", "condition": "kai_plural_preverbal", "expected": "high"}
+{"id": "pc_04", "sentence": "Η Μαρία και ένας φοιτητής ήρθαν από το μάθημα.", "phenomenon": "plural_conjunction", "condition": "kai_plural_preverbal", "expected": "high"}
+{"id": "pc_05", "sentence": "Ο Γιάννης και η οικογένειά του έφυγε για τα ξένα.", "phenomenon": "plural_conjunction", "condition": "kai_singular_preverbal", "expected": "high"}
+{"id": "pc_06", "sentence": "Ο Γιάννης και μερικοί ακόμη δεν έφαγε το γλυκό.", "phenomenon": "plural_conjunction", "condition": "kai_singular_preverbal", "expected": "low"}
+{"id": "pc_07", "sentence": "Έσπασαν ο Γιάννης και η Μαρία όλα τα πιάτα χτες στο γλέντι.", "phenomenon": "plural_conjunction", "condition": "kai_plural_postverbal", "expected": "high"}
+{"id": "pc_08", "sentence": "Έφυγαν ο Γιάννης και η οικογένειά του για τα ξένα.", "phenomenon": "plural_conjunction", "condition": "kai_plural_postverbal", "expected": "high"}
+{"id": "pc_09", "sentence": "Χύθηκαν ο καφές και η ζάχαρη στο πάτωμα.", "phenomenon": "plural_conjunction", "condition": "kai_plural_postverbal", "expected": "mid"}
+{"id": "pc_10", "sentence": "Έπαιξε ο Γιάννης και η Μαρία όλα τα λεφτά τους στο καζίνο.", "phenomenon": "plural_conjunction", "condition": "kai_singular_postverbal", "expected": "high"}
+{"id": "pc_11", "sentence": "Ήρθε χτες στο σπίτι η Μαρία και τα παιδιά.", "phenomenon": "plural_conjunction", "condition": "kai_singular_postverbal", "expected": "mid"}
+{"id": "pc_12", "sentence": "Tρόμαξε ο σκύλος και οι περισσότεροι μέσα στο δωμάτιο από τον σεισμό.", "phenomenon": "plural_conjunction", "condition": "kai_singular_postverbal", "expected": "mid"}
+{"id": "pc_13", "sentence": "O Γιάννης με τη Μαρία έφυγαν από το πάρτι μετά τα μεσάνυχτα.", "phenomenon": "plural_conjunction", "condition": "me_plural_preverbal", "expected": "high"}
+{"id": "pc_14", "sentence": "Ο σκύλος με τις γάτες της Μαρίας έχουν καταστρέψει όλο το σπίτι.", "phenomenon": "plural_conjunction", "condition": "me_plural_preverbal", "expected": "mid"}
+{"id": "pc_15", "sentence": "Η Μαρία με έναν φοιτητή ήρθαν από το μάθημα.", "phenomenon": "plural_conjunction", "condition": "me_plural_preverbal", "expected": "high"}
+{"id": "pc_16", "sentence": "Η Μαρία με τον φίλο της δεν βλέπει εξέλιξη στη σχέση τους.", "phenomenon": "plural_conjunction", "condition": "me_singular_preverbal", "expected": "mid"}
+{"id": "pc_17", "sentence": "Ο Γιάννης με την οικογένειά του έφυγε για τα ξένα.", "phenomenon": "plural_conjunction", "condition": "me_singular_preverbal", "expected": "high"}
+{"id": "pc_18", "sentence": "Ο Γιάννης με μερικούς ακόμη δεν έφαγε το γλυκό.", "phenomenon": "plural_conjunction", "condition": "me_singular_preverbal", "expected": "low"}
+{"id": "pc_19", "sentence": "Έσπασαν ο Γιάννης με τη Μαρία όλα τα πιάτα χτες στο γλέντι.", "phenomenon": "plural_conjunction", "condition": "me_plural_postverbal", "expected": "high"}
+{"id": "pc_20", "sentence": "Έφυγαν ο Γιάννης με την οικογένειά του για τα ξένα.", "phenomenon": "plural_conjunction", "condition": "me_plural_postverbal", "expected": "high"}
+{"id": "pc_21", "sentence": "Χύθηκαν ο καφές με τη ζάχαρη στο πάτωμα.", "phenomenon": "plural_conjunction", "condition": "me_plural_postverbal", "expected": "low"}
+{"id": "pc_22", "sentence": "Έπαιξε ο Γιάννης με τη Μαρία όλα τα λεφτά τους στο καζίνο.", "phenomenon": "plural_conjunction", "condition": "me_singular_postverbal", "expected": "high"}
+{"id": "pc_23", "sentence": "Ήρθε χτες στο σπίτι η Μαρία με τα παιδιά.", "phenomenon": "plural_conjunction", "condition": "me_singular_postverbal", "expected": "high"}
+{"id": "pc_24", "sentence": "Τρόμαξε ο σκύλος με τους περισσότερους μέσα στο δωμάτιο από τον σεισμό.", "phenomenon": "plural_conjunction", "condition": "me_singulat_postverbal", "expected": "high"}

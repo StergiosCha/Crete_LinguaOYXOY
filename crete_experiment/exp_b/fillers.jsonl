@@ -1,0 +1,25 @@
+{"id": "filler_01", "sentence": "Η Στέλλα αγόρασε από την αγορά 3 μήλα και 4 μελιτζάνες για μουσακά.", "phenomenon": "word_order", "condition": "svo", "expected": "high"}
+{"id": "filler_02", "sentence": "Ο Παύλος έχει ταξιδέψει σε όλα τα μήκη και πλάτη του κόσμου.", "phenomenon": "word_order", "condition": "svo", "expected": "high"}
+{"id": "filler_03", "sentence": "Η Μαρία έβγαλε όλες τις αφίσες από τον τοίχο της.", "phenomenon": "word_order", "condition": "svo", "expected": "high"}
+{"id": "filler_04", "sentence": "Ο Πέτρος είδε όλα τα βίντεο που του έστειλε ο Μήτσος.", "phenomenon": "word_order", "condition": "svo", "expected": "high"}
+{"id": "filler_05", "sentence": "Η Καίτη δουλεύει σε μαγαζί με οπτικά.", "phenomenon": "word_order", "condition": "svo", "expected": "high"}
+{"id": "filler_06", "sentence": "Η Χριστίνα σπούδασε Οικονομικά στο Πανεπιστήμιο Κρήτης.", "phenomenon": "word_order", "condition": "svo", "expected": "high"}
+{"id": "filler_07", "sentence": "Ο Χρήστος έφερε όλα του τα παιδιά στη μάζωξη.", "phenomenon": "word_order", "condition": "svo", "expected": "high"}
+{"id": "filler_08", "sentence": "Ο Αποστόλης έφαγε τρία μυρμήγκια.", "phenomenon": "word_order", "condition": "svo", "expected": "high"}
+{"id": "filler_09", "sentence": "Από την αγορά 3 μήλα και 4 μελιτζάνες για μουσακά αγόρασε η Στέλλα.", "phenomenon": "word_order", "condition": "ovs", "expected": "mid"}
+{"id": "filler_10", "sentence": "Όλα τα βίντεο που του έστειλε ο Μήτσος είδε ο Πέτρος.", "phenomenon": "word_order", "condition": "ovs", "expected": "mid"}
+{"id": "filler_11", "sentence": "Στη μάζωξη όλα του τα παιδιά έφερε ο Χρήστος.", "phenomenon": "word_order", "condition": "ovs", "expected": "mid"}
+{"id": "filler_12", "sentence": "Τρία μυρμήγκια έφαγε ο Αποστόλης.", "phenomenon": "word_order", "condition": "ovs", "expected": "high"}
+{"id": "filler_13", "sentence": "Αγόρασε η Στέλλα από την αγορά 3 μήλα και 4 μελιτζάνες για μουσακά.", "phenomenon": "word_order", "condition": "vso", "expected": "high"}
+{"id": "filler_14", "sentence": "Έχει ταξιδέψει ο Παύλος σε όλα τα μήκη και πλάτη του κόσμου.", "phenomenon": "word_order", "condition": "vso", "expected": "high"}
+{"id": "filler_15", "sentence": "Έβγαλε η Μαρία όλες τις αφίσες από τον τοίχο της.", "phenomenon": "word_order", "condition": "vso", "expected": "high"}
+{"id": "filler_16", "sentence": "Σπούδασε η Χριστίνα Οικονομικά στο Πανεπιστήμιο Κρήτης.", "phenomenon": "word_order", "condition": "vso", "expected": "high"}
+{"id": "filler_17", "sentence": "Έφαγε ο Αποστόλης 3 μυρμήγκια.", "phenomenon": "word_order", "condition": "vso", "expected": "high"}
+{"id": "filler_18", "sentence": "Αγόρασε από την αγορά 3 μήλα και 4 μελιτζάνες για μουσακά η Στέλλα.", "phenomenon": "word_order", "condition": "vos", "expected": "mid"}
+{"id": "filler_19", "sentence": "Έχει ταξιδέψει στου κόσμου όλα τα μήκη και πλάτη η Παύλος.", "phenomenon": "word_order", "condition": "vos", "expected": "mid"}
+{"id": "filler_20", "sentence": "Έβγαλε όλες τις αφίσες από τον τοίχο της η Μαρία.", "phenomenon": "word_order", "condition": "vos", "expected": "mid"}
+{"id": "filler_21", "sentence": "Δουλεύει σε μαγαζί με οπτικά η Καίτη.", "phenomenon": "word_order", "condition": "vos", "expected": "mid"}
+{"id": "filler_22", "sentence": "Από τον τοίχο της όλες τις αφίσες η Μαρία έβγαλε.", "phenomenon": "word_order", "condition": "osv", "expected": "low"}
+{"id": "filler_23", "sentence": "Σε μαγαζί με οπτικά η Καίτη δουλεύει.", "phenomenon": "word_order", "condition": "osv", "expected": "mid"}
+{"id": "filler_24", "sentence": "Οικονομικά στο Πανεπιστήμιο Κρήτης η Χριστίνα σπούδασε.", "phenomenon": "word_order", "condition": "osv", "expected": "mid"}
+{"id": "filler_25", "sentence": "Στη μάζωξη όλα του τα παιδιά ο Χρήστος έφερε.", "phenomenon": "word_order", "condition": "osv", "expected": "mid"}
