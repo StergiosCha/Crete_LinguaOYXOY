@@ -21,4 +21,4 @@
 {"id": "pc_21", "sentence": "Χύθηκαν ο καφές με τη ζάχαρη στο πάτωμα.", "phenomenon": "plural_conjunction", "condition": "me_plural_postverbal", "expected": "low"}
 {"id": "pc_22", "sentence": "Έπαιξε ο Γιάννης με τη Μαρία όλα τα λεφτά τους στο καζίνο.", "phenomenon": "plural_conjunction", "condition": "me_singular_postverbal", "expected": "high"}
 {"id": "pc_23", "sentence": "Ήρθε χτες στο σπίτι η Μαρία με τα παιδιά.", "phenomenon": "plural_conjunction", "condition": "me_singular_postverbal", "expected": "high"}
-{"id": "pc_24", "sentence": "Τρόμαξε ο σκύλος με τους περισσότερους μέσα στο δωμάτιο από τον σεισμό.", "phenomenon": "plural_conjunction", "condition": "me_singulat_postverbal", "expected": "high"}
+{"id": "pc_24", "sentence": "Τρόμαξε ο σκύλος με τους περισσότερους μέσα στο δωμάτιο από τον σεισμό.", "phenomenon": "plural_conjunction", "condition": "me_singular_postverbal", "expected": "high"}
