@@ -210,6 +210,10 @@ def call_model(model_name, messages, temperature=0.7):
     """Call a model and return the raw text response."""
     info = MODELS[model_name]
 
+    # Reasoning models (R1, grok-reasoning) need more tokens for <think>…</think> + answer
+    is_reasoning = info.get("reasoning", False)
+    token_limit = 1000 if is_reasoning else 10
+
     if info["type"] == "gpt54_responses":
         return _call_gpt54(messages)
 
@@ -219,7 +223,7 @@ def call_model(model_name, messages, temperature=0.7):
             model=info["deployment"],
             messages=messages,
             temperature=temperature,
-            max_tokens=10,
+            max_tokens=token_limit,
         )
         return resp.choices[0].message.content
 
@@ -229,7 +233,7 @@ def call_model(model_name, messages, temperature=0.7):
             model=info["deployment"],
             messages=messages,
             temperature=temperature,
-            max_tokens=10,
+            max_tokens=token_limit,
         )
         return resp.choices[0].message.content
 
