@@ -295,7 +295,8 @@ def load_stimuli(filepath):
 def load_all_stimuli(stimuli_dir, experiment=None):
     """Load .jsonl files from stimuli directory.
 
-    If experiment is 'a' or 'b', loads from exp_a/ or exp_b/ + shared/.
+    If experiment is 'a' or 'b', loads ONLY from exp_a/ or exp_b/.
+    shared/ is for dialect experiments — use --exp dialect or no --exp to include it.
     If None, loads from all subdirectories (or top-level if no subdirs).
     """
     all_items = []
@@ -303,11 +304,8 @@ def load_all_stimuli(stimuli_dir, experiment=None):
 
     if experiment:
         exp_dir = os.path.join(stimuli_dir, f"exp_{experiment}")
-        shared_dir = os.path.join(stimuli_dir, "shared")
         if os.path.isdir(exp_dir):
             search_dirs.append(exp_dir)
-        if os.path.isdir(shared_dir):
-            search_dirs.append(shared_dir)
     else:
         # Load from all subdirectories + top-level
         for d in sorted(os.listdir(stimuli_dir)):
