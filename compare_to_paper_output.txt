@@ -1,0 +1,247 @@
+
+===========================================================================
+  OVERALL CORRELATION: Human vs LLM (item-level Pearson r)
+===========================================================================
+  Model                             r    N  LLM mean  Human mean
+  --------------------------------------------------------------
+  DeepSeek-R1                   0.500   73      7.90        7.50
+  DeepSeek-V3.1                 0.265   73      7.77        7.50
+  DeepSeek-V4-Flash             0.664   73      9.08        7.50
+  DeepSeek-V4-Pro               0.507   73      6.92        7.50
+  Llama-3.3-70B                 0.353   73      8.95        7.50
+  Mistral-Large-3               0.469   73      7.95        7.50
+  gpt-4o                        0.471   73      9.38        7.50
+  grok-4-1-fast-reasoning       0.502   73      7.71        7.50
+  grok-4-20-non-reasoning       0.425   73      5.43        7.50
+
+===========================================================================
+  CLAIM 1: Polydefinites are licit in non-restrictive contexts
+===========================================================================
+  Paper: Non-restrictive polydefinites score 6.8-8.7 (Table 1)
+  Test: Do LLMs also rate non-restrictive polydefinites above midpoint (5)?
+
+  Non-restrictive polydefinite items (n=14)
+  -----------------------------------------------------------------
+  Source                         Mean  Above 5?  Items
+  HUMANS                         7.53  12/    12     12
+  DeepSeek-R1                    6.99  13/    14     14
+  DeepSeek-V3.1                  8.86  14/    14     14
+  DeepSeek-V4-Flash              9.24  13/    14     14
+  DeepSeek-V4-Pro                7.27  12/    14     14
+  Llama-3.3-70B                  8.67  14/    14     14
+  Mistral-Large-3                8.19  14/    14     14
+  gpt-4o                         9.79  14/    14     14
+  grok-4-1-fast-reasoning        7.24  9/    14     14
+  grok-4-20-non-reasoning        6.12  11/    14     14
+
+===========================================================================
+  CLAIM 2: Poly-mono differences are small
+===========================================================================
+  Paper Table 1: differences range -0.68 to +0.21, never significant
+  Test: What is the mean poly-mono difference per model?
+
+  Mean poly-mono difference across Q1 pairs (n=16)
+  -----------------------------------------------------------------
+  Source                       Poly mean  Mono mean   Diff         Range
+  HUMANS                            7.45       7.94  -0.48  [-1.3, +0.3]
+  DeepSeek-R1                       6.93       9.19  -2.26  [-7.0, +3.8]
+  DeepSeek-V3.1                     8.44       8.27  +0.17  [-1.3, +2.3]
+  DeepSeek-V4-Flash                 9.15       9.10  +0.04  [-3.0, +4.3]
+  DeepSeek-V4-Pro                   7.14       7.20  -0.06  [-3.7, +2.0]
+  Llama-3.3-70B                     8.67       8.62  +0.04  [-1.3, +0.7]
+  Mistral-Large-3                   8.15       8.25  -0.10  [-1.0, +0.7]
+  gpt-4o                            9.81       9.50  +0.31  [-0.3, +4.0]
+  grok-4-1-fast-reasoning           7.27       9.54  -2.27  [-7.3, +0.3]
+  grok-4-20-non-reasoning           5.83       6.48  -0.65  [-5.0, +2.0]
+
+===========================================================================
+  CLAIM 3: Word order as benchmark (SVO/VSO high, OVS/OSV/SOV low)
+===========================================================================
+  Paper: SVO~9.9, VSO~9.0, VOS~8.4 | OVS~5.8, OSV~3.4, SOV~3.6
+  Test: Do LLMs replicate this word-order hierarchy?
+
+  Mean rating by word order
+  -----------------------------------------------------------------
+  Source                 SVO   VSO   VOS   OVS   OSV   SOV
+  PAPER                  9.9   9.0   8.4   5.8   3.4   3.6
+  HUMANS                 9.5   8.3   7.7   5.0   3.2   4.0
+  DeepSeek-R1           10.0  10.0   5.0   3.7   6.7   3.0
+  DeepSeek-V3.1          8.2   8.5   7.8   7.0   3.5   5.7
+  DeepSeek-V4-Flash     10.0  10.0   9.0   9.2   2.8   3.0
+  DeepSeek-V4-Pro        9.0   8.0   6.0   5.3   2.0   3.3
+  Llama-3.3-70B         10.0  10.0  10.0  10.0   6.5   6.5
+  Mistral-Large-3        9.0   9.2   7.3   7.8   5.8   5.8
+  gpt-4o                10.0  10.0   9.5  10.0   6.5   3.0
+  grok-4-1-fast-reasoning  10.0  10.0   7.7  10.0   5.0   2.8
+  grok-4-20-non-reasoning   6.7   4.2   3.5   3.8   3.0   3.0
+
+===========================================================================
+  CLAIM 4: Non-intersective adj: poly < mono, feromenos lowest
+===========================================================================
+  Paper Table 2: All poly versions score lower than mono
+  feromenos is lowest (4.89 contrast, 6.00 recall)
+  jrijoros is highest (7.72 contrast, 8.94 recall)
+
+  Poly vs Mono by adjective type (Table 2 comparison)
+  -----------------------------------------------------------------
+
+  PAPER:
+    Condition                       Poly  Mono   Diff
+    Italikos (contrast)              7.1   8.7   -1.7
+    Italikos (recall)                7.4   9.9   -2.5
+    dhilitiriodhis (recall)          7.7   9.6   -1.8
+    ekpliktikos (contrast)           6.8   9.3   -2.5
+    ekpliktikos (recall)             7.3   9.6   -2.3
+    feromenos (contrast)             4.9   8.8   -3.9
+    feromenos (recall)               6.0   9.2   -3.2
+    jrijoros (contrast)              7.7   9.6   -1.9
+    jrijoros (recall)                8.9   9.3   -0.4
+    oreos (contrast)                 7.9   7.4   +0.5
+    oreos (recall)                   8.8   8.9   -0.1
+    proin (contrast)                 5.4   9.3   -3.9
+    proin (recall)                   7.2   9.6   -2.3
+
+  HUMANS:
+    Condition                       Poly  Mono   Diff
+    Italikos (contrast)              6.9   8.3   -1.4
+    Italikos (recall)                7.5   9.6   -2.1
+    dhilitiriodhis (recall)          7.4   9.2   -1.7
+    dhilitiriodhis_clld (recall)     7.4   9.2   -1.8
+    ekpliktikos (contrast)           6.5   8.9   -2.5
+    ekpliktikos (recall)             7.1   9.3   -2.2
+    feromenos (contrast)             4.8   8.4   -3.6
+    feromenos (recall)               5.9   8.9   -3.1
+    jrijoros (contrast)              7.7   9.2   -1.4
+    jrijoros (recall)                8.6   9.1   -0.5
+    oreos (contrast)                 7.6   7.3   +0.3
+    oreos (recall)                   8.7   8.7   +0.0
+    proin (contrast)                 5.2   9.2   -4.1
+    proin (recall)                   7.1   9.6   -2.5
+
+  DeepSeek-R1:
+    Condition                       Poly  Mono   Diff
+    Italikos (contrast)             10.0  10.0   +0.0
+    Italikos (recall)               10.0  10.0   +0.0
+    dhilitiriodhis (recall)         10.0  10.0   +0.0
+    dhilitiriodhis_clld (recall)     6.5   7.7   -1.2
+    ekpliktikos (contrast)           3.0  10.0   -7.0
+    ekpliktikos (recall)             7.7  10.0   -2.3
+    feromenos (contrast)             7.7  10.0   -2.3
+    feromenos (recall)               5.3  10.0   -4.7
+    jrijoros (contrast)              6.0   7.7   -1.7
+    jrijoros (recall)               10.0  10.0   +0.0
+    oreos (contrast)                 6.7   6.7   +0.0
+    oreos (recall)                   7.0  10.0   -3.0
+    proin (contrast)                 7.7   6.7   +1.0
+    proin (recall)                   3.0  10.0   -7.0
+
+  DeepSeek-V3.1:
+    Condition                       Poly  Mono   Diff
+    Italikos (contrast)             10.0   8.3   +1.7
+    Italikos (recall)               10.0  10.0   +0.0
+    dhilitiriodhis (recall)          8.3   6.3   +2.0
+    dhilitiriodhis_clld (recall)     3.3   2.3   +1.0
+    ekpliktikos (contrast)           5.3   7.0   -1.7
+    ekpliktikos (recall)            10.0  10.0   +0.0
+    feromenos (contrast)             4.7   5.0   -0.3
+    feromenos (recall)              10.0   9.3   +0.7
+    jrijoros (contrast)              4.7   6.7   -2.0
+    jrijoros (recall)                8.3   8.7   -0.3
+    oreos (contrast)                 6.7   4.0   +2.7
+    oreos (recall)                   6.3   7.3   -1.0
+    proin (contrast)                10.0   5.3   +4.7
+    proin (recall)                  10.0   7.3   +2.7
+
+  DeepSeek-V4-Flash:
+    Condition                       Poly  Mono   Diff
+    Italikos (contrast)             10.0  10.0   +0.0
+    Italikos (recall)               10.0  10.0   +0.0
+    dhilitiriodhis (recall)         10.0  10.0   +0.0
+    dhilitiriodhis_clld (recall)     5.5  10.0   -4.5
+    ekpliktikos (contrast)           8.0  10.0   -2.0
+    ekpliktikos (recall)            10.0  10.0   +0.0
+    feromenos (contrast)             2.3  10.0   -7.7
+    feromenos (recall)              10.0  10.0   +0.0
+    jrijoros (contrast)              9.3   7.0   +2.3
+    jrijoros (recall)               10.0  10.0   +0.0
+    oreos (contrast)                10.0  10.0   +0.0
+    oreos (recall)                  10.0  10.0   +0.0
+    proin (contrast)                 5.3   9.0   -3.7
+    proin (recall)                  10.0  10.0   +0.0
+
+  DeepSeek-V4-Pro:
+    Condition                       Poly  Mono   Diff
+    Italikos (contrast)              7.7   8.0   -0.3
+    Italikos (recall)                7.3   8.0   -0.7
+    dhilitiriodhis (recall)          9.3   9.7   -0.3
+    dhilitiriodhis_clld (recall)     7.3   5.3   +2.0
+    ekpliktikos (contrast)           5.3   7.7   -2.3
+    ekpliktikos (recall)             7.7   8.3   -0.7
+    feromenos (contrast)             2.0   2.0   +0.0
+    feromenos (recall)               6.7  10.0   -3.3
+    jrijoros (contrast)              7.0  10.0   -3.0
+    jrijoros (recall)                4.0   1.7   +2.3
+    oreos (contrast)                 6.7   6.3   +0.3
+    oreos (recall)                   8.0   9.3   -1.3
+    proin (contrast)                 2.0   8.3   -6.3
+    proin (recall)                   6.0   8.3   -2.3
+
+  Focus: feromenos polydefinite (lowest in paper)
+  -----------------------------------------------------------------
+  Source                       Poly(c) Mono(c) Poly(r) Mono(r)
+  PAPER                           4.89    8.78    6.00    9.22
+  HUMANS                          4.79    8.37    5.89    8.95
+  DeepSeek-R1                      7.7    10.0     5.3    10.0
+  DeepSeek-V3.1                    4.7     5.0    10.0     9.3
+  DeepSeek-V4-Flash                2.3    10.0    10.0    10.0
+  DeepSeek-V4-Pro                  2.0     2.0     6.7    10.0
+  Llama-3.3-70B                    8.0    10.0    10.0    10.0
+  Mistral-Large-3                  7.0     8.0     8.3     8.7
+  gpt-4o                          10.0    10.0    10.0    10.0
+  grok-4-1-fast-reasoning          4.7     9.7     5.0    10.0
+  grok-4-20-non-reasoning          3.7     6.7     3.3     6.7
+
+===========================================================================
+  CLAIM 5: Recall long > recall short (relative clauses help)
+===========================================================================
+  Paper: The only significant difference is short vs long definites
+
+  Recall short vs long (poly and mono)
+  -----------------------------------------------------------------
+  Source                       Short poly  Long poly Short mono  Long mono
+  PAPER                              6.82       8.35       6.74       8.44
+  HUMANS                             7.54      8.07      7.98      8.76
+  DeepSeek-R1                        7.17      5.92     10.00     10.00
+  DeepSeek-V3.1                      9.44      8.50      9.22      9.34
+  DeepSeek-V4-Flash                 10.00      8.50     10.00     10.00
+  DeepSeek-V4-Pro                    6.22      7.83      7.78      7.67
+  Llama-3.3-70B                      8.67      8.00      8.67      8.00
+  Mistral-Large-3                    8.44      9.50      8.78      9.50
+  gpt-4o                            10.00     10.00     10.00     10.00
+  grok-4-1-fast-reasoning            5.11      5.00      9.22      8.84
+  grok-4-20-non-reasoning            4.67      7.00      7.78      7.00
+
+===========================================================================
+  CLAIM 6: Polydefinite violations weaker than word-order violations
+===========================================================================
+  Paper: Poly violations are discourse-structural, never as bad as
+  grammatical violations like OSV/SOV (3-4 range)
+
+  Lowest polydefinite vs lowest word-order ratings
+  -----------------------------------------------------------------
+  Source                       Worst poly   Worst WO Poly > WO?
+  HUMANS                             4.97       3.62        YES
+  DeepSeek-R1                        8.45       4.83        YES
+  DeepSeek-V3.1                      6.67       4.58        YES
+  DeepSeek-V4-Flash                  3.89       2.92        YES
+  DeepSeek-V4-Pro                    1.89       2.67         NO
+  Llama-3.3-70B                      8.67       6.50        YES
+  Mistral-Large-3                    6.22       5.83        YES
+  gpt-4o                             8.11       4.75        YES
+  grok-4-1-fast-reasoning            5.78       3.92        YES
+  grok-4-20-non-reasoning            5.45       3.00        YES
+
+===========================================================================
+  DONE
+===========================================================================
+
